@@ -8,8 +8,14 @@ import android.view.ViewGroup;
 import androidx.fragment.app.Fragment;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import java.util.ArrayList;
 
 public class RestaurantFragment extends Fragment {
+
+    private ArrayList<Restaurant> restaurantArrayList = new ArrayList<>();
 
     public RestaurantFragment(){};
 
@@ -27,6 +33,22 @@ public class RestaurantFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater,
                              @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_restaurant, container, false);
+        View view =  inflater.inflate(R.layout.fragment_restaurant, container, false);
+
+        Restaurant restaurant1 = new Restaurant(1,"Restaurant 1");
+        restaurant1.setDesc("this is a sample description");
+        restaurant1.setImg_drawableId(R.drawable.restaurants_icon);
+        Restaurant restaurant2 = new Restaurant(2,"Restaurant 2");
+        restaurant2.setDesc("this is a sample description");
+        restaurantArrayList.add(restaurant1);
+        restaurantArrayList.add(restaurant2);
+
+
+        RecyclerView rv = view.findViewById(R.id.restaurant_rv);
+        rv.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL,false));
+        RestaurantAdapter restaurantAdapter = new RestaurantAdapter(restaurantArrayList);
+        rv.setAdapter(restaurantAdapter);
+
+        return view;
     }
 }
