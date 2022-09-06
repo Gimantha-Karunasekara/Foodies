@@ -6,10 +6,11 @@ public class Restaurant {
     private String name;
     private String desc;
 
-    public Restaurant(int rest_Id, String name)
+    public Restaurant(int rest_Id, String name, String desc)
     {
         this.rest_Id = rest_Id;
         this.name = name;
+        this.desc = desc;
     }
 
     public int getRest_Id()

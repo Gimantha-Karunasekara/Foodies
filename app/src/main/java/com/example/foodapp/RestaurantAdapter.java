@@ -5,6 +5,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
@@ -22,7 +24,7 @@ public class RestaurantAdapter extends RecyclerView.Adapter<RestaurantViewHolder
 
         LayoutInflater layoutInflater = LayoutInflater.from((parent.getContext()));
         View view = layoutInflater.inflate(R.layout.restaurants_itemview, parent, false);
-        RestaurantViewHolder restaurantViewHolder = new RestaurantViewHolder(view);
+        RestaurantViewHolder restaurantViewHolder = new RestaurantViewHolder(view,restaurantList);
         return  restaurantViewHolder;
     }
 
@@ -31,6 +33,16 @@ public class RestaurantAdapter extends RecyclerView.Adapter<RestaurantViewHolder
         holder.restaurant_img.setImageResource(restaurantList.get(position).getImg_drawableId());
         holder.restaurant_desc_label.setText(restaurantList.get(position).getDesc());
         holder.restaurant_name_label.setText(restaurantList.get(position).getName());
+
+//        NavController navController = Navigation.findNavController(,R.id.nav_host_fragment);
+//
+//        holder.restaurant_name_label.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                navController.navigate(R.id.action_restaurantFragment_to_foodItemsFragment);
+//            }
+//        });
+
     }
 
     @Override
