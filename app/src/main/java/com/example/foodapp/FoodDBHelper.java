@@ -17,7 +17,16 @@ public class FoodDBHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
-        sqLiteDatabase.execSQL("create table "+restaurantTable.NAME+"("+restaurantTable.Cols.ID+" Text, "+ restaurantTable.Cols.NAME+ " Text, "+restaurantTable.Cols.DESC+ " Text);");
+        sqLiteDatabase.execSQL("create table "+restaurantTable.NAME
+                +"("+restaurantTable.Cols.ID+" Text PRIMARY KEY, "
+                + restaurantTable.Cols.NAME+ " Text, "
+                +restaurantTable.Cols.DESC+ " Text);");
+        sqLiteDatabase.execSQL("create table "+userTable.NAME+"" +
+                "("+userTable.Cols.USERNAME+" Text, " +
+                ""+ userTable.Cols.EMAIL+ " Text PRIMARY KEY, " +
+                ""+userTable.Cols.PASSWORD+ " Text, " +
+                ""+userTable.Cols.ADDRESS+" Text, " +
+                ""+userTable.Cols.PHONE+" INT);");
 
     }
 

@@ -7,6 +7,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
 import com.example.foodapp.FoodDBSchema.restaurantTable;
+import com.example.foodapp.FoodDBSchema.userTable;
 
 import java.util.ArrayList;
 
@@ -42,5 +43,31 @@ public class FoodDBModel {
             cursor.close();
         }
         return restaurantList;
+    }
+
+    public void addUser (User user)
+    {
+        ContentValues cv = new ContentValues();
+        cv.put(userTable.Cols.USERNAME, user.getUsername());
+        cv.put(userTable.Cols.EMAIL, user.getEmail());
+        cv.put(userTable.Cols.PASSWORD,user.getPassword());
+        cv.put(userTable.Cols.ADDRESS, user.getAddress());
+        cv.put(userTable.Cols.PHONE, user.getPhone());
+        db.insert(userTable.NAME, null, cv);
+    };
+
+    public User getUserByEmail(String email)
+    {
+        Cursor cursor = db.rawQuery("SELECT * FROM users WHERE email = ? LIMIT 1", new String[]{email});
+        FoodDBCursor userCursor= new FoodDBCursor(cursor);
+        User user;
+        try{
+            userCursor.moveToFirst();
+            user = userCursor.getUseres();
+        }
+        finally {
+            cursor.close();
+        }
+        return user;
     }
 }

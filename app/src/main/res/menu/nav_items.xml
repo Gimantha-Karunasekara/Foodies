@@ -6,4 +6,8 @@
     <item android:id="@+id/restaurantFragment"
         android:title="Restaurants"
         android:icon="@drawable/restaurants_icon" />
+    <item android:id="@+id/accountFragment"
+        android:title="Account"
+        android:icon="@drawable/profile_pic"
+        />
 </menu>

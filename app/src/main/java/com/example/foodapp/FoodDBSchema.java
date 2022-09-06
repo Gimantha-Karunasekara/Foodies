@@ -26,7 +26,7 @@ public class FoodDBSchema {
             public static final String EMAIL = "email";
             public static final String PASSWORD = "password";
             public static final String ADDRESS = "address";
-            public static final int PHONE = 0000000000;
+            public static final String PHONE = "phone";
 
         }
     }

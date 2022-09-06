@@ -19,11 +19,13 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import java.util.zip.Inflater;
 
 public class MainActivity extends AppCompatActivity {
+    private static String logedInUE = "undefined";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
 
         FragmentManager frag = getSupportFragmentManager();
 
@@ -41,6 +43,10 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
+
+    public String getLogedIn(){return logedInUE;}
+
+    public void setLogedInUE(String email){logedInUE=email;}
 
 
 }

@@ -1,0 +1,92 @@
+package com.example.foodapp;
+
+import android.os.Bundle;
+
+import androidx.fragment.app.Fragment;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
+
+import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
+
+
+public class LoginFragment extends Fragment {
+
+    public LoginFragment() {
+        // Required empty public constructor
+    }
+
+    /**
+     * Use this factory method to create a new instance of
+     * this fragment using the provided parameters.
+     *
+     * @param param1 Parameter 1.
+     * @param param2 Parameter 2.
+     * @return A new instance of fragment LoginFragment.
+     */
+    // TODO: Rename and change types and number of parameters
+    public static LoginFragment newInstance(String param1, String param2) {
+        LoginFragment fragment = new LoginFragment();
+        return fragment;
+    }
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        if (getArguments() != null) {
+
+        }
+    }
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        View view  = inflater.inflate(R.layout.fragment_login, container, false);
+        NavController navController = Navigation.findNavController(getActivity(),R.id.nav_host_fragment);
+        EditText email_et = view.findViewById(R.id.email_text);
+        EditText password_et = view.findViewById(R.id.password);
+        Button login_btn = view.findViewById(R.id.login_btn);
+
+        FoodDBModel foodAppDBModel = new FoodDBModel();
+        foodAppDBModel.load(view.getContext());
+
+
+
+        MainActivity main = (MainActivity)getActivity();
+        String logedIn = main.getLogedIn();
+
+
+        login_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String email = email_et.getText().toString();
+                String password = password_et.getText().toString();
+
+                try {
+                    User user = foodAppDBModel.getUserByEmail(email);
+                    Toast.makeText(getContext(),"email or password wrong",Toast.LENGTH_SHORT).show();
+
+                    if (user.getPassword().equals(password))
+                    {
+                        ((MainActivity) getActivity()).setLogedInUE(email);
+                        navController.navigate(R.id.accountFragment);
+                    }
+
+                }
+                catch (Exception e)
+                {
+                    Log.d("Error",e.getMessage());
+                }
+
+            }
+        });
+
+
+        return view;
+    }
+}

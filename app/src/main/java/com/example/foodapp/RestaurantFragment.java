@@ -39,19 +39,10 @@ public class RestaurantFragment extends Fragment {
                              @Nullable Bundle savedInstanceState) {
         View view =  inflater.inflate(R.layout.fragment_restaurant, container, false);
 
-        FoodDBModel studentDBModel = new FoodDBModel();
-        studentDBModel.load(view.getContext());
+        FoodDBModel foodAppDBModel = new FoodDBModel();
+        foodAppDBModel.load(view.getContext());
 
-
-        Restaurant restaurant1 = new Restaurant(1,"Restaurant 1", "asdads");
-        restaurant1.setDesc("this is a sample description bluh bluh bluh bluh bluh bluh bluh");
-        restaurant1.setImg_drawableId(R.drawable.restaurants_icon);
-        Restaurant restaurant2 = new Restaurant(2,"Restaurant 2","asdasd");
-        restaurant2.setDesc("this is a sample description");
-        studentDBModel.addRestaurant(restaurant1);
-//        studentDBModel.addRestaurant(restaurant2);
-
-        restaurantArrayList = studentDBModel.getAllRestaurants();
+        restaurantArrayList = foodAppDBModel.getAllRestaurants();
 
 //        NavController navController = Navigation.findNavController();
 
