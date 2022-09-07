@@ -20,13 +20,21 @@ public class FoodDBHelper extends SQLiteOpenHelper {
         sqLiteDatabase.execSQL("create table "+restaurantTable.NAME
                 +"("+restaurantTable.Cols.ID+" Text PRIMARY KEY, "
                 + restaurantTable.Cols.NAME+ " Text, "
-                +restaurantTable.Cols.DESC+ " Text);");
+                + restaurantTable.Cols.DESC+ " Text,"
+                +restaurantTable.Cols.IMG+" INT);");
         sqLiteDatabase.execSQL("create table "+userTable.NAME+"" +
                 "("+userTable.Cols.USERNAME+" Text, " +
                 ""+ userTable.Cols.EMAIL+ " Text PRIMARY KEY, " +
                 ""+userTable.Cols.PASSWORD+ " Text, " +
                 ""+userTable.Cols.ADDRESS+" Text, " +
                 ""+userTable.Cols.PHONE+" INT);");
+
+        sqLiteDatabase.execSQL("create table "+itemsTable.NAME
+                +"("+itemsTable.Cols.ID+" INT PRIMARY KEY,"
+                +itemsTable.Cols.NAME+" Text, "
+                +itemsTable.Cols.DESC+" Text, "
+                +itemsTable.Cols.IMAGE+" Text, "
+                +itemsTable.Cols.RESTAURANT_ID+" INT);");
 
     }
 

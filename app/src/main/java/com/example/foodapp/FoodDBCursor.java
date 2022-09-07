@@ -3,6 +3,7 @@ package com.example.foodapp;
 import android.database.Cursor;
 import android.database.CursorWrapper;
 
+import com.example.foodapp.FoodDBSchema.itemsTable;
 import com.example.foodapp.FoodDBSchema.restaurantTable;
 import com.example.foodapp.FoodDBSchema.userTable;
 
@@ -16,8 +17,9 @@ public class FoodDBCursor extends CursorWrapper
         int id = getInt(getColumnIndex(restaurantTable.Cols.ID));
         String name = getString(getColumnIndex(restaurantTable.Cols.NAME));
         String desc = getString(getColumnIndex(restaurantTable.Cols.DESC));
+        int img = getInt(getColumnIndex(restaurantTable.Cols.IMG));
 //        String desc = "blah";
-        return new Restaurant(id,name,desc);
+        return new Restaurant(id,name,desc,img);
     }
 
     public User getUseres()
@@ -29,5 +31,16 @@ public class FoodDBCursor extends CursorWrapper
         int phone = getInt(getColumnIndex(userTable.Cols.PHONE));
         User user = new User(username,email,password);
         return user;
+    }
+
+    public FoodItem getFoodItem()
+    {
+        int id = getInt(getColumnIndex(itemsTable.Cols.ID));
+        String name = getString(getColumnIndex(itemsTable.Cols.NAME));
+        String desc = getString(getColumnIndex(itemsTable.Cols.DESC));
+        int img = getInt(getColumnIndex(itemsTable.Cols.IMAGE));
+        int restaurant_id = getInt(getColumnIndex(itemsTable.Cols.RESTAURANT_ID));
+        FoodItem item = new FoodItem(id, name, desc,restaurant_id);;
+        return item;
     }
 }

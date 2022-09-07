@@ -24,7 +24,6 @@ public class RestaurantViewHolder extends RecyclerView.ViewHolder {
 
         restaurant_img = view.findViewById(R.id.restaurant_img);
         restaurant_name_label = view.findViewById(R.id.restaurant_name_label);
-        restaurant_desc_label = view.findViewById(R.id.restaurant_desc_label);
         restaurant_layout = view.findViewById(R.id.restaurant_itemView_layout);
         restaurant_layout.setOnClickListener(new View.OnClickListener() {
             @Override

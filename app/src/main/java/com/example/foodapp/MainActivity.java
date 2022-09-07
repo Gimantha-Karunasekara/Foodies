@@ -10,6 +10,7 @@ import androidx.navigation.fragment.NavHostFragment;
 import androidx.navigation.ui.NavigationUI;
 
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Switch;
@@ -26,6 +27,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        View v = getWindow().getDecorView().findViewById(R.id.homeFragment);
+        SeedDatabse.initAll(v);
 
         FragmentManager frag = getSupportFragmentManager();
 

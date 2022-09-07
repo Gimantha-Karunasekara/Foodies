@@ -94,7 +94,7 @@ public class LoginFragment extends Fragment {
         signup_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                navController.navigate(R.id.);
+                navController.navigate(R.id.action_loginFragment_to_signUpFragment);
 
             }
         });

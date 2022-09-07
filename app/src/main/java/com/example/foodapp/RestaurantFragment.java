@@ -48,7 +48,7 @@ public class RestaurantFragment extends Fragment {
 
         RecyclerView rv = view.findViewById(R.id.restaurant_rv);
         rv.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL,false));
-        RestaurantAdapter restaurantAdapter = new RestaurantAdapter(restaurantArrayList);
+        RestaurantAdapter restaurantAdapter = new RestaurantAdapter(restaurantArrayList,getContext());
         rv.setAdapter(restaurantAdapter);
         return view;
     }

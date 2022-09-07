@@ -1,5 +1,6 @@
 package com.example.foodapp;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,8 +16,13 @@ import java.util.ArrayList;
 public class RestaurantAdapter extends RecyclerView.Adapter<RestaurantViewHolder> {
 
     private ArrayList<Restaurant> restaurantList;
+    private Context context;
 
-    public RestaurantAdapter(ArrayList<Restaurant> restaurantList){this.restaurantList = restaurantList;}
+    public RestaurantAdapter(ArrayList<Restaurant> restaurantList, Context c)
+    {
+        this.restaurantList = restaurantList;
+        this.context = c;
+    }
 
     @NonNull
     @Override
@@ -31,9 +37,7 @@ public class RestaurantAdapter extends RecyclerView.Adapter<RestaurantViewHolder
     @Override
     public void onBindViewHolder(@NonNull RestaurantViewHolder holder, int position) {
         holder.restaurant_img.setImageResource(restaurantList.get(position).getImg_drawableId());
-        holder.restaurant_desc_label.setText(restaurantList.get(position).getDesc());
         holder.restaurant_name_label.setText(restaurantList.get(position).getName());
-
 //        NavController navController = Navigation.findNavController(,R.id.nav_host_fragment);
 //
 //        holder.restaurant_name_label.setOnClickListener(new View.OnClickListener() {

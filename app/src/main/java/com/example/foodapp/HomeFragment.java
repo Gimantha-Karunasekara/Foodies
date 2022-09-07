@@ -66,7 +66,7 @@ public class HomeFragment extends Fragment {
 
         View view = inflater.inflate(R.layout.fragment_home, container, false);
 
-        SeedDatabse.initAll(view);
+//        SeedDatabse.initAll(view);
 
         return view;
     }
