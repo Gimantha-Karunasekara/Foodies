@@ -14,6 +14,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.android.material.bottomnavigation.BottomNavigationItemView;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+
 
 public class LoginFragment extends Fragment {
 
@@ -51,15 +54,17 @@ public class LoginFragment extends Fragment {
         EditText email_et = view.findViewById(R.id.email_text);
         EditText password_et = view.findViewById(R.id.password);
         Button login_btn = view.findViewById(R.id.login_btn);
+        Button signup_btn = view.findViewById(R.id.loginpg_signup_btn);
 
         FoodDBModel foodAppDBModel = new FoodDBModel();
         foodAppDBModel.load(view.getContext());
 
+        BottomNavigationView b_nav = container.getRootView().findViewById(R.id.bottom_nav);
+        b_nav.setSelectedItemId(R.id.accountFragment);
 
 
         MainActivity main = (MainActivity)getActivity();
         String logedIn = main.getLogedIn();
-
 
         login_btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -82,6 +87,14 @@ public class LoginFragment extends Fragment {
                 {
                     Log.d("Error",e.getMessage());
                 }
+
+            }
+        });
+
+        signup_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+//                navController.navigate(R.id.);
 
             }
         });

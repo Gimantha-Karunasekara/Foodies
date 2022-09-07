@@ -9,8 +9,8 @@ public class SeedDatabse {
         FoodDBModel foodAppDBModel = new FoodDBModel();
         foodAppDBModel.load(view.getContext());
 
-//        initRestaurantData(foodAppDBModel);
-//        initUseres(foodAppDBModel);
+        initRestaurantData(foodAppDBModel);
+        initUseres(foodAppDBModel);
     }
 
     public static void initRestaurantData(FoodDBModel foodAppDBModel){
