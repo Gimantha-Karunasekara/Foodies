@@ -57,8 +57,6 @@ public class FoodItemsFragment extends Fragment {
 
         foodItems = foodAppDBModel.getFoodItems(args.getRestaurantID());// food items list
 
-        Log.d("args", String.valueOf(args.getRestaurantID()));
-
 
 //        FoodDBModel foodAppDBModel = new FoodDBModel();
 //        foodAppDBModel.load(view.getContext());

@@ -66,6 +66,9 @@ public class AccountFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_account, container, false);
         NavController navController = Navigation.findNavController(getActivity(),R.id.nav_host_fragment);
         TextView name_tv = view.findViewById(R.id.account_profile_name);
+        TextView email_tv = view.findViewById(R.id.account_email);
+        TextView address_tv = view.findViewById(R.id.account_address);
+        TextView phone_tv = view.findViewById(R.id.account_phone);
 
         FoodDBModel foodAppDBModel = new FoodDBModel();
         foodAppDBModel.load(view.getContext());
@@ -81,8 +84,10 @@ public class AccountFragment extends Fragment {
         else {
             User user = foodAppDBModel.getUserByEmail(logedIn);
 
-
             name_tv.setText(user.getUsername());
+            email_tv.setText(user.getEmail());
+            address_tv.setText(user.getAddress());
+            phone_tv.setText(String.valueOf(user.getPhone()));
         }
 
         Toast.makeText(view.getContext(),logedIn,Toast.LENGTH_SHORT).show();

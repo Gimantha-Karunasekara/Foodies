@@ -3,10 +3,16 @@ package com.example.foodapp;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -59,6 +65,53 @@ public class SignUpFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_sign_up, container, false);
+        View view = inflater.inflate(R.layout.fragment_sign_up, container, false);
+
+
+        NavController navController = Navigation.findNavController(getActivity(),R.id.nav_host_fragment);
+        EditText name_txt = view.findViewById(R.id.name_txt);
+        EditText email_txt = view.findViewById(R.id.email_txt);
+        EditText password_txt = view.findViewById(R.id.password_txt);
+        EditText phone_txt = view.findViewById(R.id.phone_txt);
+        EditText address_txt= view.findViewById(R.id.address_txt);
+
+
+        Button signup_btn = view.findViewById(R.id.signup_btn);
+
+        signup_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                try {
+                    String name = name_txt.getText().toString();
+                    String email = email_txt.getText().toString();
+                    String password = password_txt.getText().toString();
+                    String address = address_txt.getText().toString();
+                    int phone = Integer.parseInt(phone_txt.getText().toString());
+
+
+                    FoodDBModel foodAppDBModel = new FoodDBModel();
+                    foodAppDBModel.load(view.getContext());
+
+                    User newUser = new User(name, email, password, address, phone);
+                    foodAppDBModel.addUser(newUser);
+
+                    navController.navigate(R.id.loginFragment);
+
+                }
+                catch (Exception e)
+                {
+                    Log.d("error : " , e.getMessage());
+                }
+            }
+        });
+
+        return view;
+    }
+
+    private void signup(View view)
+    {
+
+
     }
 }
