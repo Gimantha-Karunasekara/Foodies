@@ -3,18 +3,20 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/FoodApp/app/src/main/res/drawable/round_button.xml" value="0.2265" />
-        <entry key="..\:/FoodApp/app/src/main/res/layout/activity_main.xml" value="0.17255434782608695" />
-        <entry key="..\:/FoodApp/app/src/main/res/layout/fooditem_itemview.xml" value="0.264" />
-        <entry key="..\:/FoodApp/app/src/main/res/layout/fragment_food_items.xml" value="0.10185185185185185" />
-        <entry key="..\:/FoodApp/app/src/main/res/layout/fragment_home.xml" value="0.22826086956521738" />
-        <entry key="..\:/FoodApp/app/src/main/res/layout/fragment_login.xml" value="0.2223731884057971" />
-        <entry key="..\:/FoodApp/app/src/main/res/layout/fragment_restaurant.xml" value="0.2223731884057971" />
-        <entry key="..\:/FoodApp/app/src/main/res/layout/restaurants_itemview.xml" value="0.10185185185185185" />
+        <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.2425" />
+        <entry key="app/src/main/res/drawable/home_icon.xml" value="0.139" />
         <entry key="app/src/main/res/drawable/profile_pic.xml" value="0.1215" />
+        <entry key="app/src/main/res/drawable/restaurants_icon.xml" value="0.1685" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.34479166666666666" />
+        <entry key="app/src/main/res/layout/fooditem_itemview.xml" value="0.22735507246376813" />
+        <entry key="app/src/main/res/layout/fragment_account.xml" value="0.11574074074074074" />
+        <entry key="app/src/main/res/layout/fragment_food_items.xml" value="0.22735507246376813" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/fragment_login.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_restaurant.xml" value="0.34479166666666666" />
+        <entry key="app/src/main/res/layout/fragment_sign_up.xml" value="0.22974261201143947" />
+        <entry key="app/src/main/res/layout/restaurants_itemview.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/restaurent_itemview.xml" value="0.17708333333333334" />
         <entry key="app/src/main/res/menu/nav_items.xml" value="0.34479166666666666" />
       </map>
     </option>
@@ -24,5 +26,12 @@
   </component>
   <component name="ProjectType">
     <option name="id" value="Android" />
+  </component>
+  <component name="VisualizationToolProject">
+    <option name="state">
+      <ProjectState>
+        <option name="scale" value="0.1721014492753623" />
+      </ProjectState>
+    </option>
   </component>
 </project>

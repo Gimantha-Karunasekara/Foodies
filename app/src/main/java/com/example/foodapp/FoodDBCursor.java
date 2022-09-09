@@ -29,7 +29,7 @@ public class FoodDBCursor extends CursorWrapper
         String password = getString(getColumnIndex(userTable.Cols.PASSWORD));
         String address = getString(getColumnIndex(userTable.Cols.ADDRESS));
         int phone = getInt(getColumnIndex(userTable.Cols.PHONE));
-        User user = new User(username,email,password);
+        User user = new User(username,email,password, address, phone);
         return user;
     }
 

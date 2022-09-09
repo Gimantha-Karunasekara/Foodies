@@ -40,9 +40,8 @@ public class SeedDatabse {
 
     public static void initUseres(FoodDBModel foodAppDBModel)
     {
-        User user = new User("Gimantha", "gimantha@gmail.com","gimantha123");
-        user.setAddress("No50, subarathi road, kuliyapitiya");
-        user.setPhone(077123123);
+        User user = new User("Gimantha", "gimantha@gmail.com","gimantha123",
+                "No50, subarathi road, kuliyapitiya", 077123123);
         foodAppDBModel.addUser(user);
     }
     public static void initFood(FoodDBModel foodAppDBModel)
