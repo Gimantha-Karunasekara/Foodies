@@ -4,6 +4,8 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -50,7 +52,6 @@ public class FoodItemsFragment extends Fragment {
         FoodDBModel foodAppDBModel = new FoodDBModel();
         foodAppDBModel.load(view.getContext());
 
-
         Bundle bundle = getArguments();
 
         FoodItemsFragmentArgs args = FoodItemsFragmentArgs.fromBundle(bundle);
@@ -58,6 +59,11 @@ public class FoodItemsFragment extends Fragment {
         foodItems = foodAppDBModel.getFoodItems(args.getRestaurantID());// food items list
 
         Log.d("args", String.valueOf(args.getRestaurantID()));
+
+        RecyclerView rv = view.findViewById(R.id.foodItemsRecyclerView);
+        rv.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
+        FoodItemsAdapter foodItemsAdapter = new FoodItemsAdapter(foodItems,getContext());
+        rv.setAdapter(foodItemsAdapter);
 
 
 //        FoodDBModel foodAppDBModel = new FoodDBModel();

@@ -51,5 +51,6 @@ public class SeedDatabse {
         FoodItem foodItem2 = new FoodItem(2, "Burer - type 2", "this is a sample description", 1);
         foodItem1.setImg(1);
         foodAppDBModel.addFoodItem(foodItem1);
+        foodAppDBModel.addFoodItem(foodItem2);
     }
 }
