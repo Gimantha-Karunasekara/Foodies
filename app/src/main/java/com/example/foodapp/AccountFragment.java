@@ -9,6 +9,7 @@ import androidx.navigation.Navigation;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -69,6 +70,7 @@ public class AccountFragment extends Fragment {
         TextView email_tv = view.findViewById(R.id.account_email);
         TextView address_tv = view.findViewById(R.id.account_address);
         TextView phone_tv = view.findViewById(R.id.account_phone);
+        Button logout_btn = view.findViewById(R.id.account_logout_btn);
 
         FoodDBModel foodAppDBModel = new FoodDBModel();
         foodAppDBModel.load(view.getContext());
@@ -89,6 +91,14 @@ public class AccountFragment extends Fragment {
             address_tv.setText(user.getAddress());
             phone_tv.setText(String.valueOf(user.getPhone()));
         }
+
+        logout_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                main.setLogedInUE("undefined");
+                navController.navigate(R.id.loginFragment);
+            }
+        });
 
         Toast.makeText(view.getContext(),logedIn,Toast.LENGTH_SHORT).show();
 
