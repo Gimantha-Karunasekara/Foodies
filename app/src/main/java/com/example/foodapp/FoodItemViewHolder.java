@@ -19,7 +19,6 @@ public class FoodItemViewHolder extends RecyclerView.ViewHolder {
     Button btn_Add;
     Button btn_Remove;
     Button btn_AddCart;
-    ConstraintLayout foodItemView_layout;
 
 
     public FoodItemViewHolder(@NonNull View itemView, ArrayList<FoodItem> foodItems) {
@@ -31,14 +30,7 @@ public class FoodItemViewHolder extends RecyclerView.ViewHolder {
         btn_Add = itemView.findViewById(R.id.item_add);
         btn_Remove = itemView.findViewById(R.id.item_remove);
         btn_AddCart = itemView.findViewById(R.id.item_cart);
-//        foodItemView_layout = itemView.findViewById(R.id.foodItem_ItemView_layout);
-//
-//        foodItemView_layout.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//
-//            }
-//        });
+
 
 
         btn_Add.setOnClickListener(new View.OnClickListener() {
@@ -51,7 +43,6 @@ public class FoodItemViewHolder extends RecyclerView.ViewHolder {
         btn_Remove.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
             }
         });
 
