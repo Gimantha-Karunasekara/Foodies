@@ -17,6 +17,7 @@ public class FoodDBSchema {
             public static final String NAME = "name";
             public static final String DESC = "descript";
             public static final String IMAGE = "img_res";
+            public static final String PRICE = "price";
             public static final String RESTAURANT_ID = "restaurant_id";
         }
     }
@@ -29,6 +30,15 @@ public class FoodDBSchema {
             public static final String ADDRESS = "address";
             public static final String PHONE = "phone";
 
+        }
+    }
+    public static class cartTable{
+        public static final String NAME = "cart";
+        public static class Cols{
+            public static final String ITEM_ID = "id";
+            public static final String COUNT = "count";
+            public static final String USER_EMAIL = "user";
+            public static final String DATE_TIME = "dateTime";
         }
     }
 }

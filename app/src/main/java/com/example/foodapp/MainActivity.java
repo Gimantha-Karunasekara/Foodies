@@ -17,10 +17,13 @@ import android.widget.Switch;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+import java.util.ArrayList;
 import java.util.zip.Inflater;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity  {
     private static String logedInUE = "undefined";
+    private static ArrayList<CartItem> cartList = new ArrayList<>();
+    private static FoodDBModel db = new FoodDBModel();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,7 +43,6 @@ public class MainActivity extends AppCompatActivity {
         }
 
         BottomNavigationView bottomNav = findViewById(R.id.bottom_nav);
-
         NavController navController = homeFragment.getNavController();
         NavigationUI.setupWithNavController(bottomNav, navController);
 
@@ -51,5 +53,8 @@ public class MainActivity extends AppCompatActivity {
 
     public void setLogedInUE(String email){logedInUE=email;}
 
+    public ArrayList<CartItem> getCartList(){return cartList;}
+
+    public FoodDBModel getDB(){return db;}
 
 }

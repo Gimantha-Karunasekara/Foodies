@@ -43,6 +43,14 @@
             android:name="restaurantID"
             app:argType="integer"
             android:defaultValue="0" />
+        <action
+            android:id="@+id/action_foodItemsFragment_to_cartFragment"
+            app:destination="@id/cartFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out" />
+        <action
+            android:id="@+id/action_foodItemsFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
     </fragment>
     <fragment
         android:id="@+id/loginFragment"
@@ -64,4 +72,9 @@
         android:name="com.example.foodapp.SignUpFragment"
         android:label="fragment_sign_up"
         tools:layout="@layout/fragment_sign_up" />
+    <fragment
+        android:id="@+id/cartFragment"
+        android:name="com.example.foodapp.CartFragment"
+        android:label="fragment_cart"
+        tools:layout="@layout/fragment_cart" />
 </navigation>

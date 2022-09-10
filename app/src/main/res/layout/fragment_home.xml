@@ -34,12 +34,12 @@
                     android:id="@+id/home_profile_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="casual"
+                    android:layout_gravity="start|center"
+                    android:layout_marginStart="20dp"
+                    android:fontFamily="More Fonts..."
                     android:text="Hello, User"
                     android:textSize="24sp"
-                    android:textStyle="bold"
-                    android:layout_gravity="start|center"
-                    android:layout_marginStart="20dp">
+                    android:textStyle="bold">
 
                 </TextView>
 
@@ -75,8 +75,6 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-
-    <!-- TODO: Update blank fragment layout -->
 
 
 </ScrollView>

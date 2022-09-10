@@ -6,6 +6,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
+import com.example.foodapp.FoodDBSchema.cartTable;
 import com.example.foodapp.FoodDBSchema.itemsTable;
 import com.example.foodapp.FoodDBSchema.restaurantTable;
 import com.example.foodapp.FoodDBSchema.userTable;
@@ -49,6 +50,21 @@ public class FoodDBModel {
         return restaurantList;
     }
 
+    public Restaurant getRestaurantByID(int id)
+    {
+        Cursor cursor = db.rawQuery("SELECT * FROM "+restaurantTable.NAME+" WHERE "+restaurantTable.Cols.ID +" = "+ id ,null);
+        FoodDBCursor restaurantCursor = new FoodDBCursor(cursor);
+        Restaurant restaurant;
+        try{
+            restaurantCursor.moveToFirst();
+            restaurant = restaurantCursor.getRestaurant();
+        }
+        finally {
+            cursor.close();
+        }
+        return restaurant;
+    }
+
     public void addUser (User user)
     {
         ContentValues cv = new ContentValues();
@@ -82,7 +98,8 @@ public class FoodDBModel {
             cv.put(itemsTable.Cols.ID, curFoodId+1);
             cv.put(itemsTable.Cols.NAME, foodItem.getName());
             cv.put(itemsTable.Cols.DESC, foodItem.getDesc());
-            cv.put(itemsTable.Cols.IMAGE, 1);
+            cv.put(itemsTable.Cols.IMAGE, foodItem.getImg());
+            cv.put(itemsTable.Cols.PRICE, foodItem.getPrice());
             cv.put(itemsTable.Cols.RESTAURANT_ID, foodItem.getRest_id());
             db.insert(itemsTable.NAME, null, cv);
             curFoodId += 1;
@@ -112,5 +129,60 @@ public class FoodDBModel {
         }
         return foodList;
 
+    }
+
+    public FoodItem getFoodItemById(int foodID)
+    {
+        FoodItem foodItem;
+        Cursor cursor = db.rawQuery("SELECT * FROM "+itemsTable.NAME+" WHERE "+itemsTable.Cols.ID+" = "+foodID+" LIMIT 1", null);
+        FoodDBCursor foodAppDBCursor = new FoodDBCursor(cursor);
+
+        try{
+            foodAppDBCursor.moveToFirst();
+            foodItem = foodAppDBCursor.getFoodItem();
+        }
+        finally {
+            foodAppDBCursor.close();
+        }
+
+        return foodItem;
+
+    }
+
+    public void addCartItem(CartItem cartItem)
+    {
+        try{
+            ContentValues cv = new ContentValues();
+            cv.put(cartTable.Cols.ITEM_ID, cartItem.getItem_id());
+            cv.put(cartTable.Cols.COUNT, cartItem.getCount());
+            cv.put(cartTable.Cols.USER_EMAIL, cartItem.getUser_email());
+//            cv.put(cartTable.Cols.DATE_TIME, cartItem.getDate_time());
+            db.insert(cartTable.NAME,null,cv);
+        }
+        catch (Exception e)
+        {
+
+        }
+
+    }
+
+    public ArrayList<CartItem> getCartListByEmail (String email)
+    {
+        ArrayList<CartItem> cartList = new ArrayList<>();
+        Cursor cursor = db.rawQuery("SELECT * FROM "+cartTable.NAME+" WHERE "+cartTable.Cols.USER_EMAIL+ " = '" +email+"'", null);
+        FoodDBCursor foodAppDBCursor = new FoodDBCursor(cursor);
+        try{
+            foodAppDBCursor.moveToFirst();
+            while(!foodAppDBCursor.isAfterLast()){
+                cartList.add(foodAppDBCursor.getCartItem());
+                foodAppDBCursor.moveToNext();
+            }
+
+        }
+        finally {
+            cursor.close();
+        }
+
+        return cartList;
     }
 }

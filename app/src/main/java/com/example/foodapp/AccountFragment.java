@@ -5,6 +5,8 @@ import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,6 +14,8 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -90,6 +94,15 @@ public class AccountFragment extends Fragment {
             email_tv.setText(user.getEmail());
             address_tv.setText(user.getAddress());
             phone_tv.setText(String.valueOf(user.getPhone()));
+
+
+            ArrayList<CartItem> orderHistory = foodAppDBModel.getCartListByEmail(main.getLogedIn());
+
+            RecyclerView rv = view.findViewById(R.id.order_history_rv);
+            rv.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
+            HistoryAdapter adapter = new HistoryAdapter(orderHistory);
+            rv.setAdapter(adapter);
+
         }
 
         logout_btn.setOnClickListener(new View.OnClickListener() {
@@ -99,6 +112,8 @@ public class AccountFragment extends Fragment {
                 navController.navigate(R.id.loginFragment);
             }
         });
+
+
 
         Toast.makeText(view.getContext(),logedIn,Toast.LENGTH_SHORT).show();
 

@@ -46,10 +46,12 @@ public class SeedDatabse {
     }
     public static void initFood(FoodDBModel foodAppDBModel)
     {
-        FoodItem foodItem1 = new FoodItem(1,"Burger - type 1", "asdkadj",1);
-        FoodItem foodItem2 = new FoodItem(2, "Burer - type 2", "this is a sample description", 1);
-        foodItem1.setImg(1);
+        FoodItem foodItem1 = new FoodItem(1,"Burger - type 1", "asdkadj",R.drawable.res_bk, 350.00f, 1);
+        FoodItem foodItem2 = new FoodItem(2, "Burer - type 2", "this is a sample description", R.drawable.res_bk, 450.00f, 1);
+        FoodItem foodItem3 = new FoodItem(3, "Burger - type 3"
+                , "This is a veryyyy long description as you can see right here",R.drawable.res_bk, 234.56f, 1);
         foodAppDBModel.addFoodItem(foodItem1);
         foodAppDBModel.addFoodItem(foodItem2);
+        foodAppDBModel.addFoodItem(foodItem3);
     }
 }

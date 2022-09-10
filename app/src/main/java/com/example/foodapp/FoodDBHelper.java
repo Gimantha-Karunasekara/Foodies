@@ -33,8 +33,16 @@ public class FoodDBHelper extends SQLiteOpenHelper {
                 +"("+itemsTable.Cols.ID+" INT PRIMARY KEY,"
                 +itemsTable.Cols.NAME+" Text, "
                 +itemsTable.Cols.DESC+" Text, "
-                +itemsTable.Cols.IMAGE+" Text, "
+                +itemsTable.Cols.IMAGE+" INT, "
+                +itemsTable.Cols.PRICE+" DECIMAL(6,2),"
                 +itemsTable.Cols.RESTAURANT_ID+" INT);");
+
+        sqLiteDatabase.execSQL("create table "+cartTable.NAME
+            +"("+cartTable.Cols.ITEM_ID+" INT,"
+            +cartTable.Cols.COUNT+" INT, "
+            +cartTable.Cols.USER_EMAIL+" Text, "
+            +cartTable.Cols.DATE_TIME+" DATETIME DEFAULT CURRENT_TIMESTAMP, " +
+                "FOREIGN KEY ("+cartTable.Cols.ITEM_ID+") REFERENCES "+itemsTable.NAME+"("+itemsTable.Cols.ID+"));");
 
     }
 

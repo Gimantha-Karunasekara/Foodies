@@ -15,7 +15,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/bottom_nav"
 
         app:defaultNavHost="true"
         app:navGraph="@navigation/nav_graph"/>
@@ -26,7 +26,8 @@
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:menu="@menu/nav_items"
-        app:labelVisibilityMode="selected">
+        app:labelVisibilityMode="selected"
+        app:layout_constraintTop_toBottomOf="@id/nav_host_fragment">
 
 
     </com.google.android.material.bottomnavigation.BottomNavigationView>

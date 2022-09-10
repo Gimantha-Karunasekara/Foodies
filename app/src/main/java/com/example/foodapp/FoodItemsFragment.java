@@ -4,6 +4,8 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -11,6 +13,11 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
+
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
 
@@ -49,22 +56,39 @@ public class FoodItemsFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_food_items, container, false);
+        NavController navController = Navigation.findNavController(getActivity(),R.id.nav_host_fragment);
+        TextView title = view.findViewById(R.id.restaurant_detail_title);
+        ImageView img = view.findViewById(R.id.restaurant_detail_img);
+
         FoodDBModel foodAppDBModel = new FoodDBModel();
         foodAppDBModel.load(view.getContext());
+        MainActivity main = (MainActivity)getActivity();
+        ArrayList<CartItem> cartList = main.getCartList();
 
         Bundle bundle = getArguments();
 
         FoodItemsFragmentArgs args = FoodItemsFragmentArgs.fromBundle(bundle);
 
         foodItems = foodAppDBModel.getFoodItems(args.getRestaurantID());// food items list
+        Restaurant restaurant = foodAppDBModel.getRestaurantByID(args.getRestaurantID());
+
+        title.setText(restaurant.getName());
+        img.setImageResource(restaurant.getImg_drawableId());
 
         Log.d("args", String.valueOf(args.getRestaurantID()));
 
         RecyclerView rv = view.findViewById(R.id.foodItemsRecyclerView);
+        FloatingActionButton cartButton =  view.findViewById(R.id.cart_button);
         rv.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
-        FoodItemsAdapter foodItemsAdapter = new FoodItemsAdapter(foodItems,getContext());
+        FoodItemsAdapter foodItemsAdapter = new FoodItemsAdapter(foodItems,cartList,getContext(),main);
         rv.setAdapter(foodItemsAdapter);
 
+        cartButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                navController.navigate(R.id.action_foodItemsFragment_to_cartFragment);
+            }
+        });
 
 //        FoodDBModel foodAppDBModel = new FoodDBModel();
 //        foodAppDBModel.load(view.getContext());

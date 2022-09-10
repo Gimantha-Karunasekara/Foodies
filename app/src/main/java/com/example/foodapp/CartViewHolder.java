@@ -14,6 +14,7 @@ public class CartViewHolder extends RecyclerView.ViewHolder {
     TextView cart_itemTitle;
     TextView cart_itemPrice;
     TextView cart_itemCount;
+    TextView cart_itemDateTime;
     Button cart_itemAdd;
     Button cart_itemRemove;
 
@@ -27,29 +28,30 @@ public class CartViewHolder extends RecyclerView.ViewHolder {
         cart_itemCount = itemView.findViewById(R.id.txt_cart_count);
         cart_itemAdd = itemView.findViewById(R.id.btn_cart_add);
         cart_itemRemove = itemView.findViewById(R.id.btn_cart_removeItem);
+        cart_itemDateTime = itemView.findViewById(R.id.txt_cart_dateTime);
 
 
 
 
-        cart_itemAdd.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                cart_itemCount.setText(String.valueOf(cart_count));
-                cart_itemCount.getText().toString();
-                cart_itemCount.setText(String.valueOf(cart_count++));
-
-            }
-        });
-
-        cart_itemRemove.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                cart_itemCount.setText(String.valueOf(cart_count));
-                cart_itemCount.getText().toString();
-                cart_itemCount.setText(String.valueOf(cart_count--));
-
-
-            }
-        });
+//        cart_itemAdd.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                cart_itemCount.setText(String.valueOf(cart_count));
+//                cart_itemCount.getText().toString();
+//                cart_itemCount.setText(String.valueOf(cart_count++));
+//
+//            }
+//        });
+//
+//        cart_itemRemove.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                cart_itemCount.setText(String.valueOf(cart_count));
+//                cart_itemCount.getText().toString();
+//                cart_itemCount.setText(String.valueOf(cart_count--));
+//
+//
+//            }
+//        });
     }
 }

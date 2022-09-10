@@ -3,6 +3,7 @@ package com.example.foodapp;
 import android.database.Cursor;
 import android.database.CursorWrapper;
 
+import com.example.foodapp.FoodDBSchema.cartTable;
 import com.example.foodapp.FoodDBSchema.itemsTable;
 import com.example.foodapp.FoodDBSchema.restaurantTable;
 import com.example.foodapp.FoodDBSchema.userTable;
@@ -39,8 +40,19 @@ public class FoodDBCursor extends CursorWrapper
         String name = getString(getColumnIndex(itemsTable.Cols.NAME));
         String desc = getString(getColumnIndex(itemsTable.Cols.DESC));
         int img = getInt(getColumnIndex(itemsTable.Cols.IMAGE));
+        float price = getFloat(getColumnIndex(itemsTable.Cols.PRICE));
         int restaurant_id = getInt(getColumnIndex(itemsTable.Cols.RESTAURANT_ID));
-        FoodItem item = new FoodItem(id, name, desc,restaurant_id);;
+        FoodItem item = new FoodItem(id, name, desc,img,price,restaurant_id);;
         return item;
+    }
+
+    public CartItem getCartItem()
+    {
+        int id = getInt(getColumnIndex(cartTable.Cols.ITEM_ID));
+        int count = getInt(getColumnIndex(cartTable.Cols.COUNT));
+        String user_email = getString(getColumnIndex(cartTable.Cols.USER_EMAIL));
+        String date_time = getString(getColumnIndex(cartTable.Cols.DATE_TIME));
+        CartItem cartItem = new CartItem(id,count,user_email,date_time);
+        return cartItem;
     }
 }

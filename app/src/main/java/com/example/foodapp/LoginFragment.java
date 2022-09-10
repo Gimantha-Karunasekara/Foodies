@@ -60,7 +60,7 @@ public class LoginFragment extends Fragment {
         foodAppDBModel.load(view.getContext());
 
         BottomNavigationView b_nav = container.getRootView().findViewById(R.id.bottom_nav);
-        b_nav.setSelectedItemId(R.id.accountFragment);
+//        b_nav.setSelectedItemId(R.id.accountFragment);
 
 
         MainActivity main = (MainActivity)getActivity();
@@ -79,7 +79,8 @@ public class LoginFragment extends Fragment {
                     if (user.getPassword().equals(password))
                     {
                         ((MainActivity) getActivity()).setLogedInUE(email);
-                        navController.navigate(R.id.accountFragment);
+//                        navController.navigate(R.id.accountFragment);
+                        navController.popBackStack();
                     }
 
                 }
