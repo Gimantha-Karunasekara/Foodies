@@ -3,13 +3,16 @@ package com.example.foodapp;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
-import androidx.navigation.Navigation;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
+
+import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -27,6 +30,7 @@ public class HomeFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
+    private static ArrayList<FoodItem> featuredFoodItems;
     public HomeFragment() {
         // Required empty public constructor
     }
@@ -63,20 +67,32 @@ public class HomeFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
         View view = inflater.inflate(R.layout.fragment_home, container, false);
         FoodDBModel foodAppDBModel = new FoodDBModel();
         foodAppDBModel.load(view.getContext());
         TextView profile_name = view.findViewById(R.id.home_profile_name);
+        ImageView imageView = view.findViewById(R.id.home_logo);
+        imageView.setImageResource(R.drawable.foodpoint_2);
 
         MainActivity main = (MainActivity)getActivity();
         String logedIn = main.getLogedIn();
+        featuredFoodItems = main.getFeaturedList();
+
         if (!logedIn.equals("undefined"))
         {
             User user = foodAppDBModel.getUserByEmail(logedIn);
-            profile_name.setText("Welcome ," + user.getUsername());
+            profile_name.setText("Welcome, " + user.getUsername());
+        }
+        if (featuredFoodItems == null | featuredFoodItems.size() == 0)
+        {
+            featuredFoodItems = foodAppDBModel.getFeaturedFoodItems();
         }
 
-//        SeedDatabse.initAll(view);
+        RecyclerView rv = view.findViewById(R.id.featured_rv);
+        rv.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
+        FeaturedItemsAdapter featuredItemsAdapter = new FeaturedItemsAdapter(featuredFoodItems,getContext(),main,foodAppDBModel);
+        rv.setAdapter(featuredItemsAdapter);
 
         return view;
     }

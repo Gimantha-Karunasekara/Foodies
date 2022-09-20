@@ -15,8 +15,6 @@ import java.util.ArrayList;
 
 public class FoodDBModel {
     SQLiteDatabase db;
-    private static int curRestId = 0;
-    private static int curFoodId =0;
 
     public void load(Context context){
         this.db = new FoodDBHelper(context).getWritableDatabase();
@@ -24,12 +22,10 @@ public class FoodDBModel {
 
     public void addRestaurant(Restaurant restaurant){
         ContentValues cv = new ContentValues();
-        cv.put(restaurantTable.Cols.ID, curRestId+1);
         cv.put(restaurantTable.Cols.NAME, restaurant.getName());
         cv.put(restaurantTable.Cols.DESC, restaurant.getDesc());
         cv.put(restaurantTable.Cols.IMG, restaurant.getImg_drawableId());
         db.insert(restaurantTable.NAME, null, cv);
-        curRestId += 1;
     }
 
     public ArrayList<Restaurant> getAllRestaurants(){
@@ -52,7 +48,7 @@ public class FoodDBModel {
 
     public Restaurant getRestaurantByID(int id)
     {
-        Cursor cursor = db.rawQuery("SELECT * FROM "+restaurantTable.NAME+" WHERE "+restaurantTable.Cols.ID +" = "+ id ,null);
+        Cursor cursor = db.rawQuery("SELECT * FROM "+restaurantTable.NAME+" WHERE "+restaurantTable.Cols.ID+" = "+ id ,null);
         FoodDBCursor restaurantCursor = new FoodDBCursor(cursor);
         Restaurant restaurant;
         try{
@@ -65,7 +61,7 @@ public class FoodDBModel {
         return restaurant;
     }
 
-    public void addUser (User user)
+    public void addUser (User user) throws Exception
     {
         ContentValues cv = new ContentValues();
         cv.put(userTable.Cols.USERNAME, user.getUsername());
@@ -73,7 +69,7 @@ public class FoodDBModel {
         cv.put(userTable.Cols.PASSWORD,user.getPassword());
         cv.put(userTable.Cols.ADDRESS, user.getAddress());
         cv.put(userTable.Cols.PHONE, user.getPhone());
-        db.insert(userTable.NAME, null, cv);
+        db.insertOrThrow(userTable.NAME, null, cv);
     };
 
     public User getUserByEmail(String email)
@@ -95,14 +91,12 @@ public class FoodDBModel {
     {
         try {
             ContentValues cv = new ContentValues();
-            cv.put(itemsTable.Cols.ID, curFoodId+1);
             cv.put(itemsTable.Cols.NAME, foodItem.getName());
             cv.put(itemsTable.Cols.DESC, foodItem.getDesc());
             cv.put(itemsTable.Cols.IMAGE, foodItem.getImg());
             cv.put(itemsTable.Cols.PRICE, foodItem.getPrice());
             cv.put(itemsTable.Cols.RESTAURANT_ID, foodItem.getRest_id());
             db.insert(itemsTable.NAME, null, cv);
-            curFoodId += 1;
 
         }
         catch (Exception e)
@@ -147,6 +141,27 @@ public class FoodDBModel {
 
         return foodItem;
 
+    }
+
+    public ArrayList<FoodItem> getFeaturedFoodItems()
+    {
+        ArrayList<FoodItem> foodList = new ArrayList<>();
+        Cursor cursor = db.rawQuery("SELECT * FROM "+itemsTable.NAME+" ORDER BY RANDOM() LIMIT 20", null);
+        FoodDBCursor foodAppDBCursor = new FoodDBCursor(cursor);
+
+        try{
+            foodAppDBCursor.moveToFirst();
+            while(!foodAppDBCursor.isAfterLast()){
+                foodList.add(foodAppDBCursor.getFoodItem());
+                foodAppDBCursor.moveToNext();
+            }
+
+        }
+        finally {
+            foodAppDBCursor.close();
+        }
+
+        return foodList;
     }
 
     public void addCartItem(CartItem cartItem)

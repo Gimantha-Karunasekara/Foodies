@@ -4,10 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".AccountFragment">
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+    tools:context=".AccountFragment"
+    android:background="@color/gray">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -64,7 +62,7 @@
             </androidx.cardview.widget.CardView>
             <androidx.cardview.widget.CardView
                 android:layout_width="400dp"
-                android:layout_height="wrap_content"
+                android:layout_height="0dp"
                 app:cardCornerRadius="15dp"
                 android:layout_margin="5dp"
                 android:id="@+id/account_details_card"
@@ -73,7 +71,7 @@
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="match_parent">
 
                     <TextView
                         android:id="@+id/email_label"
@@ -81,7 +79,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="76dp"
                         android:layout_marginTop="40dp"
-                        android:fontFamily="@font/roboto"
+                        android:fontFamily="@font/ubermovebold"
                         android:text="Email"
                         android:textSize="20sp"
                         app:layout_constraintStart_toStartOf="parent"
@@ -95,9 +93,10 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="64dp"
                         android:layout_marginTop="40dp"
-                        android:fontFamily="@font/roboto"
+                        android:fontFamily="@font/ubermovemedium"
                         android:text="email"
                         android:textSize="16sp"
+                        android:textStyle="bold"
                         app:layout_constraintStart_toEndOf="@+id/email_label"
                         app:layout_constraintTop_toTopOf="parent">
 
@@ -109,7 +108,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="48dp"
                         android:layout_marginTop="48dp"
-                        android:fontFamily="@font/roboto"
+                        android:fontFamily="@font/ubermovebold"
                         android:text="Address"
                         android:textSize="20sp"
                         app:layout_constraintStart_toStartOf="parent"
@@ -119,9 +118,9 @@
                         android:id="@+id/textView6"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="32dp"
-                        android:layout_marginTop="48dp"
-                        android:fontFamily="@font/roboto"
+                        android:layout_marginStart="24dp"
+                        android:layout_marginTop="40dp"
+                        android:fontFamily="@font/ubermovebold"
                         android:text="Telephone"
                         android:textSize="20sp"
                         app:layout_constraintStart_toStartOf="parent"
@@ -131,12 +130,13 @@
                         android:id="@+id/account_address"
                         android:layout_width="178dp"
                         android:layout_height="65dp"
-                        android:layout_marginStart="68dp"
+                        android:layout_marginStart="64dp"
                         android:layout_marginTop="48dp"
-                        android:fontFamily="@font/roboto"
+                        android:fontFamily="@font/ubermovemedium"
                         android:paddingBottom="10dp"
                         android:text="Address..."
                         android:textSize="16sp"
+                        android:textStyle="bold"
                         app:layout_constraintStart_toEndOf="@+id/textView5"
                         app:layout_constraintTop_toBottomOf="@+id/account_phone" />
 
@@ -145,10 +145,11 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="64dp"
-                        android:layout_marginTop="60dp"
-                        android:fontFamily="@font/roboto"
+                        android:layout_marginTop="48dp"
+                        android:fontFamily="@font/ubermovemedium"
                         android:text="Tel"
                         android:textSize="16sp"
+                        android:textStyle="bold"
                         app:layout_constraintStart_toEndOf="@+id/textView6"
                         app:layout_constraintTop_toBottomOf="@+id/account_email" />
 
@@ -171,13 +172,14 @@
 
             </androidx.cardview.widget.CardView>
             <androidx.cardview.widget.CardView
+                android:background="@color/gray"
                 android:id="@+id/history_card"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintStart_toStartOf="@id/account_profile_card"
+                app:layout_constraintStart_toEndOf="@id/account_profile_card"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:cardUseCompatPadding="true">
+                android:layout_margin="10dp">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
@@ -216,6 +218,5 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-    </ScrollView>
 
 </FrameLayout>

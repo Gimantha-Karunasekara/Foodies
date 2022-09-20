@@ -74,7 +74,6 @@ public class LoginFragment extends Fragment {
 
                 try {
                     User user = foodAppDBModel.getUserByEmail(email);
-                    Toast.makeText(getContext(),"email or password wrong",Toast.LENGTH_SHORT).show();
 
                     if (user.getPassword().equals(password))
                     {
@@ -82,11 +81,16 @@ public class LoginFragment extends Fragment {
 //                        navController.navigate(R.id.accountFragment);
                         navController.popBackStack();
                     }
+                    else
+                    {
+                        Toast.makeText(view.getContext(),"Email or password is wrong, Try again",Toast.LENGTH_SHORT).show();
+
+                    }
 
                 }
                 catch (Exception e)
                 {
-                    Log.d("Error",e.getMessage());
+                    Toast.makeText(view.getContext(),"Email or password is wrong, Try again",Toast.LENGTH_SHORT).show();
                 }
 
             }

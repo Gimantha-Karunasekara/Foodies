@@ -65,17 +65,18 @@ public class FoodItemsFragment extends Fragment {
         MainActivity main = (MainActivity)getActivity();
         ArrayList<CartItem> cartList = main.getCartList();
 
+        // args
         Bundle bundle = getArguments();
-
         FoodItemsFragmentArgs args = FoodItemsFragmentArgs.fromBundle(bundle);
 
+        //DB
         foodItems = foodAppDBModel.getFoodItems(args.getRestaurantID());// food items list
         Restaurant restaurant = foodAppDBModel.getRestaurantByID(args.getRestaurantID());
+
 
         title.setText(restaurant.getName());
         img.setImageResource(restaurant.getImg_drawableId());
 
-        Log.d("args", String.valueOf(args.getRestaurantID()));
 
         RecyclerView rv = view.findViewById(R.id.foodItemsRecyclerView);
         FloatingActionButton cartButton =  view.findViewById(R.id.cart_button);

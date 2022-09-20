@@ -4,7 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".AccountFragment">
+    tools:context=".AccountFragment"
+    android:background="@color/gray">
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -37,7 +38,8 @@
                         android:layout_margin="10dp"
                         android:layout_gravity="end"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toTopOf="parent">
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent">
 
                     </ImageView>
 
@@ -46,7 +48,8 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="20dp"
-                        android:fontFamily="@font/roboto"
+                        android:fontFamily="@font/ubermovebold"
+                        android:maxWidth="200dp"
                         android:text="Hello, User"
                         android:textSize="24sp"
                         android:textStyle="bold"
@@ -78,7 +81,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="76dp"
                         android:layout_marginTop="40dp"
-                        android:fontFamily="@font/roboto"
+                        android:fontFamily="@font/ubermovebold"
                         android:text="Email"
                         android:textSize="20sp"
                         app:layout_constraintStart_toStartOf="parent"
@@ -89,12 +92,13 @@
                     <TextView
                         android:id="@+id/account_email"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="64dp"
+                        android:layout_height="0dp"
+                        android:layout_marginStart="68dp"
                         android:layout_marginTop="40dp"
-                        android:fontFamily="@font/roboto"
+                        android:fontFamily="@font/ubermovemedium"
                         android:text="email"
                         android:textSize="16sp"
+                        android:textStyle="bold"
                         app:layout_constraintStart_toEndOf="@+id/email_label"
                         app:layout_constraintTop_toTopOf="parent">
 
@@ -106,7 +110,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="48dp"
                         android:layout_marginTop="48dp"
-                        android:fontFamily="@font/roboto"
+                        android:fontFamily="@font/ubermovebold"
                         android:text="Address"
                         android:textSize="20sp"
                         app:layout_constraintStart_toStartOf="parent"
@@ -116,9 +120,9 @@
                         android:id="@+id/textView6"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="32dp"
-                        android:layout_marginTop="48dp"
-                        android:fontFamily="@font/roboto"
+                        android:layout_marginStart="28dp"
+                        android:layout_marginTop="40dp"
+                        android:fontFamily="@font/ubermovebold"
                         android:text="Telephone"
                         android:textSize="20sp"
                         app:layout_constraintStart_toStartOf="parent"
@@ -130,10 +134,11 @@
                         android:layout_height="65dp"
                         android:layout_marginStart="68dp"
                         android:layout_marginTop="48dp"
-                        android:fontFamily="@font/roboto"
+                        android:fontFamily="@font/ubermovemedium"
                         android:paddingBottom="10dp"
                         android:text="Address..."
                         android:textSize="16sp"
+                        android:textStyle="bold"
                         app:layout_constraintStart_toEndOf="@+id/textView5"
                         app:layout_constraintTop_toBottomOf="@+id/account_phone" />
 
@@ -142,10 +147,11 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="64dp"
-                        android:layout_marginTop="60dp"
-                        android:fontFamily="@font/roboto"
+                        android:layout_marginTop="48dp"
+                        android:fontFamily="@font/ubermovemedium"
                         android:text="Tel"
                         android:textSize="16sp"
+                        android:textStyle="bold"
                         app:layout_constraintStart_toEndOf="@+id/textView6"
                         app:layout_constraintTop_toBottomOf="@+id/account_email" />
 
@@ -177,7 +183,8 @@
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:background="@color/gray">
 
                     <TextView
                         android:id="@+id/order_history_label"

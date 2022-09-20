@@ -103,16 +103,17 @@ public class CartFragment extends Fragment {
             checkout_btn.setVisibility(View.INVISIBLE);
             msg_layout.setVisibility(View.VISIBLE);
             msg_img.setImageResource(R.drawable.cart_icon);
+            total_txt.setVisibility(View.INVISIBLE);
             msg_title.setText("Cart is empty");
             msg_description.setText("Add items to cart to view them here");
         }
         else
         {
             total_txt.setVisibility(View.VISIBLE);
-            back_btn.setVisibility(View.INVISIBLE);
             rv.setVisibility(View.VISIBLE);
             checkout_btn.setVisibility(View.VISIBLE);
             msg_layout.setVisibility(View.INVISIBLE);
+            total_txt.setVisibility(View.VISIBLE);
             rv.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
             CartAdapter adapter = new CartAdapter(cartList, getContext(), CartFragment.this);
             rv.setAdapter(adapter);
@@ -125,12 +126,14 @@ public class CartFragment extends Fragment {
                     }
 
                     rv.setVisibility(View.INVISIBLE);
-                    checkout_btn.setVisibility(View.INVISIBLE);
+                    total_txt.setVisibility(View.INVISIBLE);
                     msg_layout.setVisibility(View.VISIBLE);
+                    checkout_btn.setVisibility(View.INVISIBLE);
                     msg_img.setImageResource(R.drawable.done_icon);
                     back_btn.setVisibility(View.VISIBLE);
                     msg_title.setText("Purchase Complete");
                     msg_description.setText("Your order will be delivered soon");
+                    cartList.clear();
 
                 }
             });
@@ -158,7 +161,7 @@ public class CartFragment extends Fragment {
                 FoodItem food = dbModel.getFoodItemById(item.getItem_id());
                 total += item.getCount() * food.getPrice();
             }
-            total_txt.setText("Rs. "+String.valueOf(total));
+            total_txt.setText("Total: Rs. "+String.valueOf(total));
         }
 
     }

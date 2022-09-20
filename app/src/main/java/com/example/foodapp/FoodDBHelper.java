@@ -18,7 +18,7 @@ public class FoodDBHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
         sqLiteDatabase.execSQL("create table "+restaurantTable.NAME
-                +"("+restaurantTable.Cols.ID+" Text PRIMARY KEY, "
+                +"("+restaurantTable.Cols.ID+" INTEGER PRIMARY KEY AUTOINCREMENT, "
                 + restaurantTable.Cols.NAME+ " Text, "
                 + restaurantTable.Cols.DESC+ " Text,"
                 +restaurantTable.Cols.IMG+" INT);");
@@ -30,7 +30,7 @@ public class FoodDBHelper extends SQLiteOpenHelper {
                 ""+userTable.Cols.PHONE+" INT);");
 
         sqLiteDatabase.execSQL("create table "+itemsTable.NAME
-                +"("+itemsTable.Cols.ID+" INT PRIMARY KEY,"
+                +"("+itemsTable.Cols.ID+" INTEGER PRIMARY KEY AUTOINCREMENT,"
                 +itemsTable.Cols.NAME+" Text, "
                 +itemsTable.Cols.DESC+" Text, "
                 +itemsTable.Cols.IMAGE+" INT, "

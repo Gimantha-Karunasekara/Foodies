@@ -2,6 +2,8 @@ package com.example.foodapp;
 
 import android.view.View;
 
+import java.util.ArrayList;
+
 public class SeedDatabse {
 
     private static boolean seeded = false;
@@ -13,9 +15,14 @@ public class SeedDatabse {
         FoodDBModel foodAppDBModel = new FoodDBModel();
         foodAppDBModel.load(view.getContext());
 
-        initRestaurantData(foodAppDBModel);
-        initUseres(foodAppDBModel);
-        initFood(foodAppDBModel);
+        ArrayList<Restaurant> restaurants = foodAppDBModel.getAllRestaurants();
+
+        if (restaurants.size() == 0)
+        {
+            initRestaurantData(foodAppDBModel);
+            initUseres(foodAppDBModel);
+            initFood(foodAppDBModel);
+        }
     }
 
     public static void initRestaurantData(FoodDBModel foodAppDBModel){
@@ -40,9 +47,16 @@ public class SeedDatabse {
 
     public static void initUseres(FoodDBModel foodAppDBModel)
     {
-        User user = new User("Gimantha", "gimantha@gmail.com","gimantha123",
-                "No50, subarathi road, kuliyapitiya", 077123123);
-        foodAppDBModel.addUser(user);
+        try {
+
+            User user = new User("Gimantha", "gimantha@gmail.com", "gimantha123",
+                    "No50, subarathi road, kuliyapitiya", 077123123);
+            foodAppDBModel.addUser(user);
+        }
+        catch (Exception e)
+        {
+            System.out.println(e.getMessage());
+        }
     }
     public static void initFood(FoodDBModel foodAppDBModel)
     {

@@ -85,7 +85,7 @@ public class AccountFragment extends Fragment {
 
         if (logedIn.equals("undefined"))
         {
-            navController.navigate(R.id.loginFragment);
+            navController.navigate(R.id.action_accountFragment_to_loginFragment);
         }
         else {
             User user = foodAppDBModel.getUserByEmail(logedIn);
@@ -115,7 +115,6 @@ public class AccountFragment extends Fragment {
 
 
 
-        Toast.makeText(view.getContext(),logedIn,Toast.LENGTH_SHORT).show();
 
         return view;
     }

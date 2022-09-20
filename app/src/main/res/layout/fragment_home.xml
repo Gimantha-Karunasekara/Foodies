@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".HomeFragment"
-    android:background="@color/pastelPurple">
+    android:background="@color/gray">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -19,14 +19,14 @@
                 app:layout_constraintTop_toTopOf="parent">
 
                 <ImageView
-                    android:contentDescription=""
-                    android:id="@+id/home_profile_pic"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/profile_pic"
-                    android:padding="10dp"
+                    android:id="@+id/home_logo"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:layout_gravity="end"
                     android:layout_margin="10dp"
-                    android:layout_gravity="end">
+                    android:scaleType="fitCenter"
+                    android:contentDescription=""
+                    android:padding="10dp">
 
                 </ImageView>
 
@@ -36,8 +36,10 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="start|center"
                     android:layout_marginStart="20dp"
-                    android:fontFamily="More Fonts..."
-                    android:text="Hello, User"
+                    android:breakStrategy="high_quality"
+                    android:fontFamily="@font/ubermovebold"
+                    android:maxWidth="200dp"
+                    android:text="Welcome"
                     android:textSize="24sp"
                     android:textStyle="bold">
 
@@ -47,20 +49,46 @@
 
             <androidx.cardview.widget.CardView
                 android:layout_width="0dp"
-                android:layout_height="1000dp"
+                android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 app:layout_constraintTop_toBottomOf="@+id/profile_card"
                 android:layout_marginHorizontal="5dp"
                 android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
                 app:cardCornerRadius="15dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                >
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:background="@color/gray">
 
-                <FrameLayout
-                    android:id="@+id/featured_fl"
+                <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="match_parent"
+                    android:background="@color/gray"
+                    >
+
+
+                    <TextView
+                        android:id="@+id/todays_special_label"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="top|center"
+                        android:layout_margin="10dp"
+                        android:fontFamily="@font/ubermovebold"
+                        android:text="Today's Special"
+                        android:textSize="20sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                    </TextView>
+                <FrameLayout
+                    android:id="@+id/featured_frame"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
+                    android:layout_marginTop="10dp"
+                    app:layout_constraintTop_toBottomOf = "@+id/todays_special_label">
                     <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/featured_rv"
                         android:layout_width="match_parent"
@@ -69,6 +97,7 @@
                     </androidx.recyclerview.widget.RecyclerView>
 
                 </FrameLayout>
+                </androidx.constraintlayout.widget.ConstraintLayout>
 
             </androidx.cardview.widget.CardView>
 

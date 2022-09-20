@@ -16,6 +16,7 @@ import android.view.View;
 import android.widget.Switch;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.navigation.NavigationBarView;
 
 import java.util.ArrayList;
 import java.util.zip.Inflater;
@@ -23,6 +24,7 @@ import java.util.zip.Inflater;
 public class MainActivity extends AppCompatActivity  {
     private static String logedInUE = "undefined";
     private static ArrayList<CartItem> cartList = new ArrayList<>();
+    private static ArrayList<FoodItem> featuredList = new ArrayList<>();
     private static FoodDBModel db = new FoodDBModel();
 
     @Override
@@ -47,7 +49,45 @@ public class MainActivity extends AppCompatActivity  {
         NavigationUI.setupWithNavController(bottomNav, navController);
 
 
+//        NavigationUI.setupActionBarWithNavController(this, navController);
+
+        bottomNav.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener(){
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+
+                switch (item.getItemId())
+                {
+                    case R.id.homeFragment:
+                        navController.navigate(R.id.homeFragment);
+                        return true;
+
+                    case R.id.restaurantFragment:
+                        navController.navigate(R.id.restaurantFragment);
+                        overridePendingTransition(0,0);
+                        return true;
+
+                    case R.id.cartFragment:
+                        navController.navigate(R.id.cartFragment);
+                        overridePendingTransition(0,0);
+                        return true;
+
+                    case R.id.accountFragment:
+                        navController.navigate(R.id.accountFragment);
+                        overridePendingTransition(0,0);
+                        return true;
+                }
+                return false;
+            }
+        });
+
+
     }
+
+//    @Override
+//    public boolean onSupportNavigateUp() {
+//        onBackPressed();
+//        return super.onSupportNavigateUp();
+//    }
 
     public String getLogedIn(){return logedInUE;}
 
@@ -56,5 +96,7 @@ public class MainActivity extends AppCompatActivity  {
     public ArrayList<CartItem> getCartList(){return cartList;}
 
     public FoodDBModel getDB(){return db;}
+
+    public ArrayList<FoodItem> getFeaturedList(){return featuredList;}
 
 }

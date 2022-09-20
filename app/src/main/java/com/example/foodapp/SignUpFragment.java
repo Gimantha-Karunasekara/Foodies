@@ -89,19 +89,30 @@ public class SignUpFragment extends Fragment {
                     String address = address_txt.getText().toString();
                     int phone = Integer.parseInt(phone_txt.getText().toString());
 
+                    if (email.indexOf('@') == -1 || email.indexOf('.') == -1)
+                    {
+                        Toast.makeText(view.getContext(),"Enter a valid email",Toast.LENGTH_SHORT).show();
+                    }
+                    else if (name.equals("") || email.equals("") || password.equals("") || address.equals(""))
+                    {
+                        Toast.makeText(view.getContext(),"All fields required !",Toast.LENGTH_SHORT).show();
+                    }
+                    else
+                    {
+                        FoodDBModel foodAppDBModel = new FoodDBModel();
+                        foodAppDBModel.load(view.getContext());
 
-                    FoodDBModel foodAppDBModel = new FoodDBModel();
-                    foodAppDBModel.load(view.getContext());
+                        User newUser = new User(name, email, password, address, phone);
+                        foodAppDBModel.addUser(newUser);
 
-                    User newUser = new User(name, email, password, address, phone);
-                    foodAppDBModel.addUser(newUser);
-
-                    navController.navigate(R.id.loginFragment);
+                        Toast.makeText(view.getContext(),"Signup successful, Please Log in !",Toast.LENGTH_SHORT).show();
+                        navController.popBackStack();
+                    }
 
                 }
                 catch (Exception e)
                 {
-                    Log.d("error : " , e.getMessage());
+                    Toast.makeText(getContext(),"Email already registed !",Toast.LENGTH_SHORT).show();;
                 }
             }
         });
