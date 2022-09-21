@@ -67,6 +67,15 @@
         <action
             android:id="@+id/action_foodItemsFragment_to_loginFragment"
             app:destination="@id/loginFragment" />
+        <action
+            android:id="@+id/action_foodItemsFragment_to_itemInfoFragment"
+            app:destination="@id/itemInfoFragment" >
+
+            <argument
+                android:name="foodItemID"
+                android:defaultValue="0"
+                app:argType="integer" />
+        </action>
     </fragment>
     <fragment
         android:id="@+id/loginFragment"
@@ -103,5 +112,23 @@
         android:id="@+id/cartFragment"
         android:name="com.example.foodapp.CartFragment"
         android:label="fragment_cart"
-        tools:layout="@layout/fragment_cart" />
+        tools:layout="@layout/fragment_cart" >
+        <action
+            android:id="@+id/action_cartFragment_to_loginFragment"
+            app:destination="@id/loginFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@android:anim/fade_in"
+            app:popExitAnim="@android:anim/fade_out" />
+    </fragment>
+    <fragment
+        android:id="@+id/itemInfoFragment"
+        android:name="com.example.foodapp.ItemInfoFragment"
+        android:label="fragment_item_info"
+        tools:layout="@layout/fragment_item_info" >
+        <argument
+            android:name="foodItemID"
+            android:defaultValue="0"
+            app:argType="integer" />
+    </fragment>
 </navigation>

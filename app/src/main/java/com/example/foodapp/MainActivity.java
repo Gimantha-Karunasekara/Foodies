@@ -43,7 +43,6 @@ public class MainActivity extends AppCompatActivity  {
             homeFragment = new NavHostFragment();
             frag.beginTransaction().add(R.id.nav_host_fragment,homeFragment).commit();
         }
-
         BottomNavigationView bottomNav = findViewById(R.id.bottom_nav);
         NavController navController = homeFragment.getNavController();
         NavigationUI.setupWithNavController(bottomNav, navController);

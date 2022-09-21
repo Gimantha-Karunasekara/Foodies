@@ -16,6 +16,7 @@ import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationItemView;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 
 public class LoginFragment extends Fragment {
@@ -49,12 +50,16 @@ public class LoginFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        BottomNavigationView navBar = getActivity().findViewById(R.id.bottom_nav);
+        navBar.setVisibility(View.VISIBLE);
+
         View view  = inflater.inflate(R.layout.fragment_login, container, false);
         NavController navController = Navigation.findNavController(getActivity(),R.id.nav_host_fragment);
         EditText email_et = view.findViewById(R.id.email_text);
         EditText password_et = view.findViewById(R.id.password);
         Button login_btn = view.findViewById(R.id.login_btn);
         Button signup_btn = view.findViewById(R.id.loginpg_signup_btn);
+        FloatingActionButton back_btn = view.findViewById(R.id.login_back_btn);
 
         FoodDBModel foodAppDBModel = new FoodDBModel();
         foodAppDBModel.load(view.getContext());
@@ -101,6 +106,13 @@ public class LoginFragment extends Fragment {
             public void onClick(View view) {
                 navController.navigate(R.id.action_loginFragment_to_signUpFragment);
 
+            }
+        });
+
+        back_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                navController.popBackStack();
             }
         });
 

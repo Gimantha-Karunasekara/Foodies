@@ -55,6 +55,8 @@ public class FoodItemsFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+        BottomNavigationView navBar = getActivity().findViewById(R.id.bottom_nav);
+        navBar.setVisibility(View.VISIBLE);
         View view = inflater.inflate(R.layout.fragment_food_items, container, false);
         NavController navController = Navigation.findNavController(getActivity(),R.id.nav_host_fragment);
         TextView title = view.findViewById(R.id.restaurant_detail_title);

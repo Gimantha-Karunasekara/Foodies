@@ -1,6 +1,8 @@
 package com.example.foodapp;
 
-public class CartItem {
+import java.io.Serializable;
+
+public class CartItem implements Serializable {
     private int item_id;
     private int count;
     private String user_email = "";

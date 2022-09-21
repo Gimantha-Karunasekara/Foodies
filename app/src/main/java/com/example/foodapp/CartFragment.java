@@ -19,6 +19,7 @@ import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.snackbar.Snackbar;
 
 import java.util.ArrayList;
 
@@ -76,6 +77,8 @@ public class CartFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        BottomNavigationView navBar = getActivity().findViewById(R.id.bottom_nav);
+        navBar.setVisibility(View.GONE);
 
         View view = inflater.inflate(R.layout.fragment_cart, container, false);
         NavController navController = Navigation.findNavController(getActivity(),R.id.nav_host_fragment);
@@ -87,11 +90,12 @@ public class CartFragment extends Fragment {
         TextView msg_description = view.findViewById(R.id.msg_description);
         FloatingActionButton back_btn = view.findViewById(R.id.cart_back_btn);
         total_txt = view.findViewById(R.id.cart_total_txt);
+        MainActivity main = (MainActivity)getActivity();
+        String logedIn = main.getLogedIn();
 
         dbModel = new FoodDBModel();
         dbModel.load(getContext());
 
-        MainActivity main = (MainActivity)getActivity();
         cartList = main.getCartList();
         updateTotal();
 
@@ -121,19 +125,52 @@ public class CartFragment extends Fragment {
             checkout_btn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    for (CartItem cartItem: cartList) {
-                        dbModel.addCartItem(cartItem);
+
+//                    if (!logedIn.equals("undefined"))
+//                    {
+//                        if(Integer.parseInt(holder.text_itemCount.getText().toString()) <= 0)
+//                        {
+//                            Toast.makeText(view.getContext(), "Please select amount", Toast.LENGTH_SHORT).show();
+//                        }
+//                        else
+//                        {
+//                            CartItem cartItem = new CartItem(
+//                                    foodItems.get(holder.getAdapterPosition()).getID(),
+//                                    Integer.parseInt(holder.text_itemCount.getText().toString()), logedIn,"time");
+//                            cartItems.add(cartItem);
+//                            Snackbar.make(view,"Items added to cart",Snackbar.LENGTH_SHORT).show();
+//                        }
+//                    }
+//                    else
+//                    {
+//                        NavController navController = Navigation.findNavController(view);
+//                        navController.navigate(R.id.action_foodItemsFragment_to_loginFragment);
+//                    }
+
+                    if (!logedIn.equals("undefined"))
+                    {
+                        for (CartItem cartItem: cartList) {
+                            dbModel.addCartItem(cartItem);
+                        }
+
+                        rv.setVisibility(View.INVISIBLE);
+                        total_txt.setVisibility(View.INVISIBLE);
+                        msg_layout.setVisibility(View.VISIBLE);
+                        checkout_btn.setVisibility(View.INVISIBLE);
+                        msg_img.setImageResource(R.drawable.done_icon);
+                        back_btn.setVisibility(View.VISIBLE);
+                        msg_title.setText("Purchase Complete");
+                        msg_description.setText("Your order will be delivered soon");
+                        cartList.clear();
+                    }
+                    else
+                    {
+                        NavController navController = Navigation.findNavController(view);
+                        navController.navigate(R.id.action_cartFragment_to_loginFragment);
                     }
 
-                    rv.setVisibility(View.INVISIBLE);
-                    total_txt.setVisibility(View.INVISIBLE);
-                    msg_layout.setVisibility(View.VISIBLE);
-                    checkout_btn.setVisibility(View.INVISIBLE);
-                    msg_img.setImageResource(R.drawable.done_icon);
-                    back_btn.setVisibility(View.VISIBLE);
-                    msg_title.setText("Purchase Complete");
-                    msg_description.setText("Your order will be delivered soon");
-                    cartList.clear();
+
+
 
                 }
             });

@@ -15,6 +15,8 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+
 import java.util.ArrayList;
 
 /**
@@ -68,6 +70,8 @@ public class AccountFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+        BottomNavigationView navBar = getActivity().findViewById(R.id.bottom_nav);
+        navBar.setVisibility(View.VISIBLE);
         View view = inflater.inflate(R.layout.fragment_account, container, false);
         NavController navController = Navigation.findNavController(getActivity(),R.id.nav_host_fragment);
         TextView name_tv = view.findViewById(R.id.account_profile_name);

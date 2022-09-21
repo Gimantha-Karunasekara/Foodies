@@ -24,7 +24,7 @@
                 android:id="@+id/txt_title"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="24dp"
+                android:layout_marginLeft="15dp"
                 android:layout_marginTop="28dp"
                 android:fontFamily="@font/ubermovebold"
                 android:text="Title"
@@ -38,18 +38,20 @@
 
             <TextView
                 android:id="@+id/txt_description"
-                android:layout_width="153dp"
-                android:layout_height="0dp"
-                android:layout_marginLeft="24dp"
-                android:layout_marginTop="20dp"
+                android:layout_width="189dp"
+                android:layout_height="64dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="15dp"
                 android:layout_marginBottom="10dp"
                 android:fontFamily="@font/ubermovemedium"
                 android:text="Description"
                 android:textSize="16sp"
-                app:layout_constraintBottom_toTopOf="@+id/itemView_itemCount_label"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/item_price_txt"
-                app:layout_constraintVertical_bias="0.0">
+                app:layout_constraintVertical_bias="0.0"
+                android:ellipsize="end"
+                android:maxLines="3">
 
             </TextView>
 
@@ -57,70 +59,21 @@
                 android:id="@+id/item_image"
                 android:layout_width="150dp"
                 android:layout_height="150dp"
-                android:layout_marginTop="28dp"
-                android:layout_marginEnd="16dp"
+                android:layout_marginHorizontal="28dp"
+                android:layout_marginEnd="15dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
                 android:scaleType="centerCrop">
 
             </ImageView>
-
-            <Button
-                android:id="@+id/item_add"
-                android:layout_width="41dp"
-                android:layout_height="41dp"
-                android:layout_marginEnd="68dp"
-                android:layout_marginBottom="4dp"
-                android:text="+"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/item_cart">
-
-            </Button>
-
-            <Button
-                android:id="@+id/item_remove"
-                android:layout_width="41dp"
-                android:layout_height="41dp"
-                android:layout_marginStart="24dp"
-                android:layout_marginBottom="4dp"
-                android:text="-"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent">
-
-            </Button>
-
-            <Button
-                android:id="@+id/item_cart"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:layout_marginRight="16dp"
-                android:layout_marginBottom="4dp"
-                android:text="ADD to Cart"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/item_image"
-                app:layout_constraintVertical_bias="0.0">
-
-            </Button>
-
-            <TextView
-                android:id="@+id/itemView_itemCount_label"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="16dp"
-                android:fontFamily="@font/ubermovemedium"
-                android:text="0"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/item_add"
-                app:layout_constraintStart_toEndOf="@+id/item_remove" />
 
             <TextView
                 android:id="@+id/item_price_txt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="24dp"
-                android:layout_marginTop="28dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="15dp"
                 android:fontFamily="@font/ubermovemedium"
                 android:text="Price"
                 android:textSize="16sp"

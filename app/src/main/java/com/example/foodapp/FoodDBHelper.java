@@ -42,14 +42,19 @@ public class FoodDBHelper extends SQLiteOpenHelper {
             +cartTable.Cols.COUNT+" INT, "
             +cartTable.Cols.USER_EMAIL+" Text, "
             +cartTable.Cols.DATE_TIME+" DATETIME DEFAULT CURRENT_TIMESTAMP, " +
-                "FOREIGN KEY ("+cartTable.Cols.ITEM_ID+") REFERENCES "+itemsTable.NAME+"("+itemsTable.Cols.ID+"));");
+                "FOREIGN KEY ("+cartTable.Cols.ITEM_ID+") REFERENCES "+
+                itemsTable.NAME+"("+itemsTable.Cols.ID+"));");
 
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
 
-        sqLiteDatabase.execSQL("DROP TABLE IF EXISTS restaurants");
+        sqLiteDatabase.execSQL("DROP TABLE IF EXISTS "+restaurantTable.NAME);
+        sqLiteDatabase.execSQL("DROP TABLE IF EXISTS "+ userTable.NAME);
+        sqLiteDatabase.execSQL("DROP TABLE IF EXISTS "+ itemsTable.NAME);
+        sqLiteDatabase.execSQL("DROP TABLE IF EXISTS "+ cartTable.NAME);
+
         onCreate(sqLiteDatabase);
 
     }

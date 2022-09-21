@@ -61,6 +61,21 @@ public class FoodDBModel {
         return restaurant;
     }
 
+    public FoodItem getFoodByID(int id)
+    {
+        Cursor cursor = db.rawQuery("SELECT * FROM "+itemsTable.NAME+" WHERE "+itemsTable.Cols.ID+" = "+ id ,null);
+        FoodDBCursor foodItemCursor = new FoodDBCursor(cursor);
+        FoodItem foodItem;
+        try{
+            foodItemCursor.moveToFirst();
+             foodItem = foodItemCursor.getFoodItem();
+        }
+        finally {
+            cursor.close();
+        }
+        return foodItem;
+    }
+
     public void addUser (User user) throws Exception
     {
         ContentValues cv = new ContentValues();
@@ -79,7 +94,7 @@ public class FoodDBModel {
         User user;
         try{
             userCursor.moveToFirst();
-            user = userCursor.getUseres();
+            user = userCursor.getUser();
         }
         finally {
             cursor.close();

@@ -20,6 +20,8 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+
 import java.util.ArrayList;
 
 public class RestaurantFragment extends Fragment {
@@ -43,6 +45,9 @@ public class RestaurantFragment extends Fragment {
                              @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
         View view =  inflater.inflate(R.layout.fragment_restaurant, container, false);
+
+        BottomNavigationView navBar = getActivity().findViewById(R.id.bottom_nav);
+        navBar.setVisibility(View.VISIBLE);
 
         FragmentManager fragmentManager= getActivity().getSupportFragmentManager();
         NavHostFragment navHostFragment = (NavHostFragment) fragmentManager.findFragmentById(R.id.nav_host_fragment);
@@ -72,7 +77,9 @@ public class RestaurantFragment extends Fragment {
 
         RecyclerView rv = view.findViewById(R.id.restaurant_rv);
         FrameLayout frame = view.findViewById(R.id.restaurant_frame);
-        if (frame == null)
+        String tag = (String)frame.getTag();
+        Toast.makeText(getContext(),tag,Toast.LENGTH_SHORT).show();
+        if (tag.equals("restaurant_portrait"))
         {
             rv.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL,false));
         }

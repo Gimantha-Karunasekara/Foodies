@@ -23,7 +23,7 @@ public class FoodDBCursor extends CursorWrapper
         return new Restaurant(id,name,desc,img);
     }
 
-    public User getUseres()
+    public User getUser()
     {
         String username = getString(getColumnIndex(userTable.Cols.USERNAME));
         String email = getString(getColumnIndex(userTable.Cols.EMAIL));
