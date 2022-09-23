@@ -15,6 +15,7 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
+import androidx.cardview.widget.CardView;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
@@ -27,10 +28,7 @@ public class FoodItemViewHolder extends RecyclerView.ViewHolder {
     TextView text_Description;
     TextView text_price;
     ImageView image_Item;
-    Button btn_Add;
-    Button btn_Remove;
-    Button btn_AddCart;
-    ConstraintLayout foodItemView_layout;
+    CardView item_Card;
 
     private int itemCount;
 
@@ -41,9 +39,7 @@ public class FoodItemViewHolder extends RecyclerView.ViewHolder {
         text_Description = itemView.findViewById(R.id.txt_description);
         text_price = itemView.findViewById(R.id.item_price_txt);
         image_Item = itemView.findViewById(R.id.item_image);
-        btn_Add = itemView.findViewById(R.id.item_add);
-        btn_Remove = itemView.findViewById(R.id.item_remove);
-        btn_AddCart = itemView.findViewById(R.id.item_cart);
+        item_Card = itemView.findViewById(R.id.foodItem_card);
 
 
         View popup = inflater.inflate(R.layout.description_popup, null);
@@ -62,7 +58,7 @@ public class FoodItemViewHolder extends RecyclerView.ViewHolder {
 //            }
 //        });
 
-        image_Item.setOnClickListener(new View.OnClickListener() {
+        item_Card.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 NavController navController = Navigation.findNavController(view);

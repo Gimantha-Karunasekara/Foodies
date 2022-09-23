@@ -61,6 +61,7 @@ public class FoodItemsFragment extends Fragment {
         NavController navController = Navigation.findNavController(getActivity(),R.id.nav_host_fragment);
         TextView title = view.findViewById(R.id.restaurant_detail_title);
         ImageView img = view.findViewById(R.id.restaurant_detail_img);
+        FloatingActionButton back_btn = view.findViewById(R.id.restaurants_back_btn);
 
         FoodDBModel foodAppDBModel = new FoodDBModel();
         foodAppDBModel.load(view.getContext());
@@ -90,6 +91,13 @@ public class FoodItemsFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 navController.navigate(R.id.action_foodItemsFragment_to_cartFragment);
+            }
+        });
+
+        back_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                navController.navigate(R.id.action_foodItemsFragment_to_restaurantFragment);
             }
         });
 

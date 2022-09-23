@@ -69,13 +69,24 @@
             app:destination="@id/loginFragment" />
         <action
             android:id="@+id/action_foodItemsFragment_to_itemInfoFragment"
-            app:destination="@id/itemInfoFragment" >
+            app:destination="@id/itemInfoFragment"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@android:anim/slide_out_right">
 
             <argument
                 android:name="foodItemID"
                 android:defaultValue="0"
                 app:argType="integer" />
         </action>
+        <action
+            android:id="@+id/action_foodItemsFragment_to_restaurantFragment"
+            app:destination="@id/restaurantFragment"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@android:anim/slide_out_right" />
     </fragment>
     <fragment
         android:id="@+id/loginFragment"

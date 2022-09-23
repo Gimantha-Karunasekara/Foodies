@@ -15,6 +15,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
 import java.util.ArrayList;
@@ -81,6 +82,7 @@ public class ItemInfoFragment extends Fragment {
         Button add_btn = view.findViewById(R.id.info_add_btn);
         Button remove_btn = view.findViewById(R.id.info_remove_btn);
         Button add_to_cart = view.findViewById(R.id.info_addToCart_btn);
+        FloatingActionButton back_btn = view.findViewById(R.id.info_back_btn);
 
 
         FoodDBModel foodAppDBModel = new FoodDBModel();
@@ -99,7 +101,8 @@ public class ItemInfoFragment extends Fragment {
         image.setImageResource(foodItem.getImg());
         title.setText(foodItem.getName());
         description.setText(foodItem.getDesc());
-        price.setText(String.valueOf(foodItem.getPrice()));
+        String priceString = "Rs. " + String.valueOf(foodItem.getPrice());
+        price.setText(priceString);
 
 
         add_btn.setOnClickListener(new View.OnClickListener() {
@@ -114,7 +117,9 @@ public class ItemInfoFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 itemCount = Integer.parseInt(count.getText().toString());
-                count.setText(String.valueOf(itemCount-1));
+                if(itemCount > 0){
+                    count.setText(String.valueOf(itemCount-1));
+                }
             }
         });
 
@@ -136,6 +141,13 @@ public class ItemInfoFragment extends Fragment {
                         navController.popBackStack();
                     }
 
+            }
+        });
+
+        back_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                navController.popBackStack();
             }
         });
 

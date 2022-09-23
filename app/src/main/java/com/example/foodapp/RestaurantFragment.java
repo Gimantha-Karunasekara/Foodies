@@ -78,7 +78,6 @@ public class RestaurantFragment extends Fragment {
         RecyclerView rv = view.findViewById(R.id.restaurant_rv);
         FrameLayout frame = view.findViewById(R.id.restaurant_frame);
         String tag = (String)frame.getTag();
-        Toast.makeText(getContext(),tag,Toast.LENGTH_SHORT).show();
         if (tag.equals("restaurant_portrait"))
         {
             rv.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL,false));

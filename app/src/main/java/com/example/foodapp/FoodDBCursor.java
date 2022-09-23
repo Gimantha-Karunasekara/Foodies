@@ -3,7 +3,7 @@ package com.example.foodapp;
 import android.database.Cursor;
 import android.database.CursorWrapper;
 
-import com.example.foodapp.FoodDBSchema.cartTable;
+import com.example.foodapp.FoodDBSchema.purchaseTable;
 import com.example.foodapp.FoodDBSchema.itemsTable;
 import com.example.foodapp.FoodDBSchema.restaurantTable;
 import com.example.foodapp.FoodDBSchema.userTable;
@@ -48,10 +48,10 @@ public class FoodDBCursor extends CursorWrapper
 
     public CartItem getCartItem()
     {
-        int id = getInt(getColumnIndex(cartTable.Cols.ITEM_ID));
-        int count = getInt(getColumnIndex(cartTable.Cols.COUNT));
-        String user_email = getString(getColumnIndex(cartTable.Cols.USER_EMAIL));
-        String date_time = getString(getColumnIndex(cartTable.Cols.DATE_TIME));
+        int id = getInt(getColumnIndex(purchaseTable.Cols.ITEM_ID));
+        int count = getInt(getColumnIndex(purchaseTable.Cols.COUNT));
+        String user_email = getString(getColumnIndex(purchaseTable.Cols.USER_EMAIL));
+        String date_time = getString(getColumnIndex(purchaseTable.Cols.DATE_TIME));
         CartItem cartItem = new CartItem(id,count,user_email,date_time);
         return cartItem;
     }

@@ -6,7 +6,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
-import com.example.foodapp.FoodDBSchema.cartTable;
+import com.example.foodapp.FoodDBSchema.purchaseTable;
 import com.example.foodapp.FoodDBSchema.itemsTable;
 import com.example.foodapp.FoodDBSchema.restaurantTable;
 import com.example.foodapp.FoodDBSchema.userTable;
@@ -183,11 +183,11 @@ public class FoodDBModel {
     {
         try{
             ContentValues cv = new ContentValues();
-            cv.put(cartTable.Cols.ITEM_ID, cartItem.getItem_id());
-            cv.put(cartTable.Cols.COUNT, cartItem.getCount());
-            cv.put(cartTable.Cols.USER_EMAIL, cartItem.getUser_email());
+            cv.put(purchaseTable.Cols.ITEM_ID, cartItem.getItem_id());
+            cv.put(purchaseTable.Cols.COUNT, cartItem.getCount());
+            cv.put(purchaseTable.Cols.USER_EMAIL, cartItem.getUser_email());
 //            cv.put(cartTable.Cols.DATE_TIME, cartItem.getDate_time());
-            db.insert(cartTable.NAME,null,cv);
+            db.insert(purchaseTable.NAME,null,cv);
         }
         catch (Exception e)
         {
@@ -199,7 +199,7 @@ public class FoodDBModel {
     public ArrayList<CartItem> getCartListByEmail (String email)
     {
         ArrayList<CartItem> cartList = new ArrayList<>();
-        Cursor cursor = db.rawQuery("SELECT * FROM "+cartTable.NAME+" WHERE "+cartTable.Cols.USER_EMAIL+ " = '" +email+"'", null);
+        Cursor cursor = db.rawQuery("SELECT * FROM "+ purchaseTable.NAME+" WHERE "+ purchaseTable.Cols.USER_EMAIL+ " = '" +email+"'", null);
         FoodDBCursor foodAppDBCursor = new FoodDBCursor(cursor);
         try{
             foodAppDBCursor.moveToFirst();

@@ -126,30 +126,12 @@ public class CartFragment extends Fragment {
                 @Override
                 public void onClick(View view) {
 
-//                    if (!logedIn.equals("undefined"))
-//                    {
-//                        if(Integer.parseInt(holder.text_itemCount.getText().toString()) <= 0)
-//                        {
-//                            Toast.makeText(view.getContext(), "Please select amount", Toast.LENGTH_SHORT).show();
-//                        }
-//                        else
-//                        {
-//                            CartItem cartItem = new CartItem(
-//                                    foodItems.get(holder.getAdapterPosition()).getID(),
-//                                    Integer.parseInt(holder.text_itemCount.getText().toString()), logedIn,"time");
-//                            cartItems.add(cartItem);
-//                            Snackbar.make(view,"Items added to cart",Snackbar.LENGTH_SHORT).show();
-//                        }
-//                    }
-//                    else
-//                    {
-//                        NavController navController = Navigation.findNavController(view);
-//                        navController.navigate(R.id.action_foodItemsFragment_to_loginFragment);
-//                    }
 
                     if (!logedIn.equals("undefined"))
                     {
+                        User user = dbModel.getUserByEmail(logedIn);
                         for (CartItem cartItem: cartList) {
+                            cartItem.setUser_email(user.getEmail());
                             dbModel.addCartItem(cartItem);
                         }
 

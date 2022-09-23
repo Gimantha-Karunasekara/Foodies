@@ -37,12 +37,12 @@ public class FoodDBHelper extends SQLiteOpenHelper {
                 +itemsTable.Cols.PRICE+" DECIMAL(6,2),"
                 +itemsTable.Cols.RESTAURANT_ID+" INT);");
 
-        sqLiteDatabase.execSQL("create table "+cartTable.NAME
-            +"("+cartTable.Cols.ITEM_ID+" INT,"
-            +cartTable.Cols.COUNT+" INT, "
-            +cartTable.Cols.USER_EMAIL+" Text, "
-            +cartTable.Cols.DATE_TIME+" DATETIME DEFAULT CURRENT_TIMESTAMP, " +
-                "FOREIGN KEY ("+cartTable.Cols.ITEM_ID+") REFERENCES "+
+        sqLiteDatabase.execSQL("create table "+ purchaseTable.NAME
+            +"("+ purchaseTable.Cols.ITEM_ID+" INT,"
+            + purchaseTable.Cols.COUNT+" INT, "
+            + purchaseTable.Cols.USER_EMAIL+" Text, "
+            + purchaseTable.Cols.DATE_TIME+" DATETIME DEFAULT CURRENT_TIMESTAMP, " +
+                "FOREIGN KEY ("+ purchaseTable.Cols.ITEM_ID+") REFERENCES "+
                 itemsTable.NAME+"("+itemsTable.Cols.ID+"));");
 
     }
@@ -53,7 +53,7 @@ public class FoodDBHelper extends SQLiteOpenHelper {
         sqLiteDatabase.execSQL("DROP TABLE IF EXISTS "+restaurantTable.NAME);
         sqLiteDatabase.execSQL("DROP TABLE IF EXISTS "+ userTable.NAME);
         sqLiteDatabase.execSQL("DROP TABLE IF EXISTS "+ itemsTable.NAME);
-        sqLiteDatabase.execSQL("DROP TABLE IF EXISTS "+ cartTable.NAME);
+        sqLiteDatabase.execSQL("DROP TABLE IF EXISTS "+ purchaseTable.NAME);
 
         onCreate(sqLiteDatabase);
 

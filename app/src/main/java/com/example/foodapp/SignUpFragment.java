@@ -15,6 +15,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -79,6 +80,7 @@ public class SignUpFragment extends Fragment {
         EditText password_txt = view.findViewById(R.id.password_txt);
         EditText phone_txt = view.findViewById(R.id.phone_txt);
         EditText address_txt= view.findViewById(R.id.address_txt);
+        FloatingActionButton back_btn = view.findViewById(R.id.signup_back_btn);
 
 
         Button signup_btn = view.findViewById(R.id.signup_btn);
@@ -119,6 +121,13 @@ public class SignUpFragment extends Fragment {
                 {
                     Toast.makeText(getContext(),"Email already registed !",Toast.LENGTH_SHORT).show();;
                 }
+            }
+        });
+
+        back_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                navController.popBackStack();
             }
         });
 

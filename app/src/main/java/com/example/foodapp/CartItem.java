@@ -32,6 +32,10 @@ public class CartItem implements Serializable {
         return user_email;
     }
 
+    public void setUser_email(String user_email) {
+        this.user_email = user_email;
+    }
+
     public void setCount(int count) {
         this.count = count;
     }
