@@ -6,10 +6,10 @@
     app:startDestination="@id/homeFragment">
 
     <fragment
-        android:id="@+id/restaurantFragment"
-        android:name="com.example.foodapp.RestaurantFragment"
+        android:id="@+id/restaurantsFragment"
+        android:name="com.example.foodapp.RestaurantsFragment"
         android:label="fragment_restaurant"
-        tools:layout="@layout/fragment_restaurant" >
+        tools:layout="@layout/fragment_restaurants" >
 
         <argument
             android:name="redirectRestaurantID"
@@ -17,8 +17,8 @@
             app:argType="integer" />
 
         <action
-            android:id="@+id/action_restaurantFragment_to_foodItemsFragment"
-            app:destination="@id/foodItemsFragment"
+            android:id="@+id/action_restaurantsFragment_to_RestaurantPageFragment"
+            app:destination="@id/restaurantPageFragment"
             app:enterAnim="@android:anim/slide_in_left"
             app:exitAnim="@android:anim/slide_out_right"
             app:popEnterAnim="@android:anim/slide_in_left"
@@ -36,8 +36,8 @@
         android:label="fragment_blank"
         tools:layout="@layout/fragment_home" >
         <action
-            android:id="@+id/action_home_to_restaurantFragment"
-            app:destination="@id/restaurantFragment"
+            android:id="@+id/action_home_to_restaurantsFragment"
+            app:destination="@id/restaurantsFragment"
             app:enterAnim="@android:anim/fade_in"
             app:popEnterAnim="@android:anim/fade_in" >
             <argument
@@ -51,24 +51,24 @@
             app:destination="@id/loginFragment" />
     </fragment>
     <fragment
-        android:id="@+id/foodItemsFragment"
-        android:name="com.example.foodapp.FoodItemsFragment"
-        android:label="fragment_food_items"
-        tools:layout="@layout/fragment_food_items" >
+        android:id="@+id/restaurantPageFragment"
+        android:name="com.example.foodapp.RestaurantPageFragment"
+        android:label="fragment_restaurant_page"
+        tools:layout="@layout/fragment_restaurant_page" >
         <argument
             android:name="restaurantID"
             app:argType="integer"
             android:defaultValue="0" />
         <action
-            android:id="@+id/action_foodItemsFragment_to_cartFragment"
+            android:id="@+id/RestaurantPageFragment_to_cartFragment"
             app:destination="@id/cartFragment"
             app:enterAnim="@android:anim/fade_in"
             app:exitAnim="@android:anim/fade_out" />
         <action
-            android:id="@+id/action_foodItemsFragment_to_loginFragment"
+            android:id="@+id/action_restaurantPageFragment_to_loginFragment"
             app:destination="@id/loginFragment" />
         <action
-            android:id="@+id/action_foodItemsFragment_to_itemInfoFragment"
+            android:id="@+id/action_restaurantPageFragment_to_itemInfoFragment"
             app:destination="@id/itemInfoFragment"
             app:enterAnim="@android:anim/slide_in_left"
             app:exitAnim="@android:anim/slide_out_right"
@@ -81,8 +81,8 @@
                 app:argType="integer" />
         </action>
         <action
-            android:id="@+id/action_foodItemsFragment_to_restaurantFragment"
-            app:destination="@id/restaurantFragment"
+            android:id="@+id/action_restaurantPageFragment_to_restaurantsFragment"
+            app:destination="@id/restaurantsFragment"
             app:enterAnim="@android:anim/slide_in_left"
             app:exitAnim="@android:anim/slide_out_right"
             app:popEnterAnim="@android:anim/slide_in_left"

@@ -42,11 +42,6 @@ public class FoodItemViewHolder extends RecyclerView.ViewHolder {
         item_Card = itemView.findViewById(R.id.foodItem_card);
 
 
-        View popup = inflater.inflate(R.layout.description_popup, null);
-        View main = inflater.inflate(R.layout.activity_main, null);
-        TextView popup_Title = popup.findViewById(R.id.popup_title);
-        TextView popup_Description = popup.findViewById(R.id.popup_description);
-
 
 
 //        foodItemView_layout = itemView.findViewById(R.id.foodItem_ItemView_layout);
@@ -62,8 +57,8 @@ public class FoodItemViewHolder extends RecyclerView.ViewHolder {
             @Override
             public void onClick(View view) {
                 NavController navController = Navigation.findNavController(view);
-                FoodItemsFragmentDirections.ActionFoodItemsFragmentToItemInfoFragment direction
-                        = FoodItemsFragmentDirections.actionFoodItemsFragmentToItemInfoFragment();
+                RestaurantPageFragmentDirections.ActionRestaurantPageFragmentToItemInfoFragment direction
+                        = RestaurantPageFragmentDirections.actionRestaurantPageFragmentToItemInfoFragment();
                 direction.setFoodItemID(foodItems.get(getAdapterPosition()).getID());
                 navController.navigate(direction);
 
@@ -71,37 +66,6 @@ public class FoodItemViewHolder extends RecyclerView.ViewHolder {
             }
         });
 
-
-
-
-        text_Description.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                main.setAlpha(0.1f);
-                FoodItem foodItem = foodItems.get(getAdapterPosition());
-                popup_Title.setText(foodItem.getName());
-                popup_Description.setText(foodItem.getDesc());
-
-                int width = LinearLayout.LayoutParams.WRAP_CONTENT;
-                int height = LinearLayout.LayoutParams.WRAP_CONTENT;
-                boolean focusable = true;
-                popup.setElevation(20);
-                final PopupWindow popupWindow = new PopupWindow(popup, width, height, focusable);
-                popupWindow.setOnDismissListener(new PopupWindow.OnDismissListener() {
-                    @RequiresApi(api = Build.VERSION_CODES.M)
-                    @Override
-                    public void onDismiss() {
-                        popupWindow.dismiss();
-
-                    }
-                });
-
-                // show the popup window
-                // which view you pass in doesn't matter, it is only used for the window tolken
-                popupWindow.showAtLocation(view, Gravity.CENTER, 0, 0);
-
-            }
-        });
 
     }
 }

@@ -29,8 +29,8 @@ public class RestaurantViewHolder extends RecyclerView.ViewHolder {
             @Override
             public void onClick(View view) {
                 NavController navController = Navigation.findNavController(view);
-                RestaurantFragmentDirections.ActionRestaurantFragmentToFoodItemsFragment direction
-                        = RestaurantFragmentDirections.actionRestaurantFragmentToFoodItemsFragment();
+                RestaurantsFragmentDirections.ActionRestaurantsFragmentToRestaurantPageFragment direction
+                        = RestaurantsFragmentDirections.actionRestaurantsFragmentToRestaurantPageFragment();
                 direction.setRestaurantID(restaurantList.get(getAdapterPosition()).getRest_Id());
                 navController.navigate(direction);
 

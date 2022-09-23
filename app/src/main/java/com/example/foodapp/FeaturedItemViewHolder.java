@@ -35,8 +35,8 @@ public class FeaturedItemViewHolder extends RecyclerView.ViewHolder {
             public void onClick(View view) {
 
                 NavController navController = Navigation.findNavController(view);
-                HomeFragmentDirections.ActionHomeToRestaurantFragment direction
-                        = HomeFragmentDirections.actionHomeToRestaurantFragment();
+                HomeFragmentDirections.ActionHomeToRestaurantsFragment direction
+                        = HomeFragmentDirections.actionHomeToRestaurantsFragment();
                 direction.setRedirectRestaurantID(foodList.get(getAdapterPosition()).getRest_id());
                 navController.navigate(direction);
             }
