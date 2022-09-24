@@ -1,5 +1,6 @@
 package com.example.foodapp;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 
 import androidx.constraintlayout.widget.ConstraintLayout;
@@ -180,7 +181,8 @@ public class CartFragment extends Fragment {
                 FoodItem food = dbModel.getFoodItemById(item.getItem_id());
                 total += item.getCount() * food.getPrice();
             }
-            total_txt.setText("Total: Rs. "+String.valueOf(total));
+            @SuppressLint("DefaultLocale") String priceString = "Rs. "+String.format("%.2f", total);
+            total_txt.setText(priceString);
         }
 
     }

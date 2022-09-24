@@ -1,5 +1,6 @@
 package com.example.foodapp;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -30,6 +31,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartViewHolder> {
         dbModel.load(context);
         CartItem cartItem = cartList.get(holder.getAdapterPosition());
         FoodItem foodItem = dbModel.getFoodItemById(cartItem.getItem_id());
+        @SuppressLint("DefaultLocale") String price = String.format("%.2f", foodItem.getPrice() * cartItem.getCount());
         String priceString = "Rs. "+String.valueOf(foodItem.getPrice() * cartItem.getCount());
 
         holder.cart_itemTitle.setText(foodItem.getName());
