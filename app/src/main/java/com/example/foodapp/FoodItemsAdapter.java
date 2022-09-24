@@ -2,6 +2,7 @@ package com.example.foodapp;
 
 import static android.content.Context.LAYOUT_INFLATER_SERVICE;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -43,12 +44,12 @@ public class FoodItemsAdapter extends RecyclerView.Adapter<FoodItemViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull FoodItemViewHolder holder, int position) {
         holder.image_Item.setImageResource(foodItems.get(position).getImg());
-        String logedIn = main.getLogedIn();
-        String priceSring = "Rs. "+String.valueOf(foodItems.get(holder.getAdapterPosition()).getPrice());
+        Float price = foodItems.get(position).getPrice();
+        @SuppressLint("DefaultLocale") String priceString = "Rs. "+String.format("%.2f", price);
 
         holder.text_Title.setText(foodItems.get(holder.getAdapterPosition()).getName());
         holder.text_Description.setText(foodItems.get(holder.getAdapterPosition()).getDesc());
-        holder.text_price.setText(priceSring);
+        holder.text_price.setText(priceString);
 
     }
 

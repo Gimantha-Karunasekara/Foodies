@@ -18,7 +18,7 @@ public class FoodDBHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
         sqLiteDatabase.execSQL("create table "+restaurantTable.NAME
-                +"("+restaurantTable.Cols.ID+" INTEGER PRIMARY KEY AUTOINCREMENT, "
+                +"("+restaurantTable.Cols.ID+" INTEGER PRIMARY KEY , "
                 + restaurantTable.Cols.NAME+ " Text, "
                 + restaurantTable.Cols.DESC+ " Text,"
                 +restaurantTable.Cols.IMG+" INT);");

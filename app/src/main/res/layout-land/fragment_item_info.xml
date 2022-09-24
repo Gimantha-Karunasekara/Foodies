@@ -30,7 +30,7 @@
                 android:layout_margin="5dp"
                 android:src="@drawable/arrow_back_white"
                 app:rippleColor="@color/transparent"
-                app:backgroundTint="@color/teal_700"
+                app:backgroundTint="@color/white"
                 android:outlineProvider="none"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -66,6 +66,7 @@
             android:id="@+id/info_rightPanel"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:paddingTop="50dp"
             android:layout_gravity="center"
 
             >
@@ -95,8 +96,8 @@
                         android:layout_height="wrap_content"
                         android:layout_margin="10dp"
                         android:fontFamily="@font/ubermovebold"
+                        android:textColor="@color/black"
                         android:textSize="34sp"
-                        android:textStyle="bold"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="@id/info_rightPanel">

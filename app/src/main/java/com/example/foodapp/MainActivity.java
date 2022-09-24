@@ -8,6 +8,7 @@ import androidx.navigation.fragment.NavHostFragment;
 import androidx.navigation.ui.NavigationUI;
 
 import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -90,7 +91,10 @@ public class MainActivity extends AppCompatActivity  {
                 })
                 .setNegativeButton("No", null)
                 .show();
+
     }
+
+
 
     public String getLogedIn(){return logedInUE;}
 

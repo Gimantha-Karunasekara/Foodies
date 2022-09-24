@@ -1,5 +1,6 @@
 package com.example.foodapp;
 
+import android.app.Dialog;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -11,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -58,6 +60,7 @@ public class RestaurantPageFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_restaurant_page, container, false);
         NavController navController = Navigation.findNavController(getActivity(),R.id.nav_host_fragment);
         TextView title = view.findViewById(R.id.restaurant_detail_title);
+        TextView about_label = view.findViewById(R.id.restaurant_about);
         ImageView img = view.findViewById(R.id.restaurant_detail_img);
         FloatingActionButton back_btn = view.findViewById(R.id.restaurants_back_btn);
 
@@ -65,6 +68,7 @@ public class RestaurantPageFragment extends Fragment {
         foodAppDBModel.load(view.getContext());
         MainActivity main = (MainActivity)getActivity();
         ArrayList<CartItem> cartList = main.getCartList();
+        Dialog popupDialog = new Dialog(main);
 
         // args
         Bundle bundle = getArguments();
@@ -84,6 +88,32 @@ public class RestaurantPageFragment extends Fragment {
         rv.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
         FoodItemsAdapter foodItemsAdapter = new FoodItemsAdapter(foodItems,cartList,getContext(),main);
         rv.setAdapter(foodItemsAdapter);
+
+        about_label.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                popupDialog.setContentView(R.layout.description_popup);
+                popupDialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+                popupDialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+                popupDialog.setCancelable(true);
+
+                TextView description = popupDialog.findViewById(R.id.popup_description);
+                TextView title = popupDialog.findViewById(R.id.popup_title);
+                Button close_btn = popupDialog.findViewById(R.id.popup_close_btn);
+
+                title.setText(restaurant.getName());
+                description.setText(restaurant.getDesc());
+
+                close_btn.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        popupDialog.dismiss();
+                    }
+                });
+
+                popupDialog.show();
+            }
+        });
 
         cartButton.setOnClickListener(new View.OnClickListener() {
             @Override

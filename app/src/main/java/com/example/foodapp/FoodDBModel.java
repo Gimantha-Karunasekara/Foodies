@@ -22,6 +22,7 @@ public class FoodDBModel {
 
     public void addRestaurant(Restaurant restaurant){
         ContentValues cv = new ContentValues();
+        cv.put(restaurantTable.Cols.ID, restaurant.getRest_Id());
         cv.put(restaurantTable.Cols.NAME, restaurant.getName());
         cv.put(restaurantTable.Cols.DESC, restaurant.getDesc());
         cv.put(restaurantTable.Cols.IMG, restaurant.getImg_drawableId());

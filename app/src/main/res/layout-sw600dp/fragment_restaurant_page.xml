@@ -16,6 +16,7 @@
                 android:layout_height="match_parent"
                 android:layout_width="0dp"
                 android:maxWidth="380dp"
+                android:background="@color/white"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@id/foodItemsRecyclerView"
@@ -31,7 +32,7 @@
                     android:layout_margin="5dp"
                     android:src="@drawable/arrow_back_white"
                     app:rippleColor="@color/transparent"
-                    app:backgroundTint="@color/teal_700"
+                    app:backgroundTint="@color/white"
                     android:outlineProvider="none"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -62,11 +63,24 @@
                     android:layout_margin="20dp"
                     android:textSize="24sp"
                     android:textStyle="bold"
-                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintBottom_toTopOf="@+id/restaurant_about"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent">
 
                 </TextView>
+
+                <TextView
+                    android:id="@+id/restaurant_about"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="20dp"
+                    android:text="About"
+                    android:textColor="@color/teal_700"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
 

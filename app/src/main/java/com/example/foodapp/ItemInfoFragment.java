@@ -1,5 +1,6 @@
 package com.example.foodapp;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -78,7 +79,7 @@ public class ItemInfoFragment extends Fragment {
         TextView title = view.findViewById(R.id.info_title);
         TextView description = view.findViewById(R.id.info_description);
         TextView count = view.findViewById(R.id.info_itemCount);
-        TextView price = view.findViewById(R.id.info_price);
+        TextView price_txt = view.findViewById(R.id.info_price);
         Button add_btn = view.findViewById(R.id.info_add_btn);
         Button remove_btn = view.findViewById(R.id.info_remove_btn);
         Button add_to_cart = view.findViewById(R.id.info_addToCart_btn);
@@ -101,8 +102,9 @@ public class ItemInfoFragment extends Fragment {
         image.setImageResource(foodItem.getImg());
         title.setText(foodItem.getName());
         description.setText(foodItem.getDesc());
-        String priceString = "Rs. " + String.valueOf(foodItem.getPrice());
-        price.setText(priceString);
+        Float price = foodItem.getPrice();
+        @SuppressLint("DefaultLocale") String priceString = "Rs. "+String.format("%.2f", price);
+        price_txt.setText(priceString);
 
 
         add_btn.setOnClickListener(new View.OnClickListener() {

@@ -51,8 +51,8 @@
                         android:fontFamily="@font/ubermovebold"
                         android:maxWidth="200dp"
                         android:text="Welcome"
-                        android:textSize="20sp"
-                        android:textStyle="bold">
+                        android:textColor="@color/black"
+                        android:textSize="20sp">
 
                     </TextView>
 
@@ -65,8 +65,8 @@
                         android:fontFamily="@font/ubermovebold"
                         android:maxWidth="200dp"
                         android:text=""
-                        android:textSize="20sp"
-                        android:textStyle="bold">
+                        android:textColor="@color/black"
+                        android:textSize="20sp">
 
                     </TextView>
                 </LinearLayout>

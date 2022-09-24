@@ -35,7 +35,7 @@ public class SeedDatabse {
                 "ingredients, signature recipes, and family-friendly dining experiences is what has defined our brand for " +
                 "more than 50 successful years.",R.drawable.res_bk);
 
-        Restaurant restaurant2 = new Restaurant(1,"Pizza Hut - Pelawatta",
+        Restaurant restaurant2 = new Restaurant(2,"Pizza Hut - Pelawatta",
                 "Pizza Hut is an American multinational restaurant chain and international " +
                         "franchise founded in 1958 in Wichita, Kansas by Dan and Frank Carney. " +
                         "They serve their signature pan pizza and other dishes " +

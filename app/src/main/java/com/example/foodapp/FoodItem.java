@@ -7,7 +7,6 @@ public class FoodItem {
     private int img;
     private float price;
     private int rest_id;
-    private int featured;
 
     public FoodItem(int id, String name, String desc, int img ,float price, int rest_id)
     {

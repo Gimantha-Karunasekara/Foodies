@@ -80,8 +80,8 @@
                 android:fontFamily="@font/ubermovebold"
                 android:text="Log In"
                 android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                android:textColor="@color/black"
                 android:textSize="34sp"
-                android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />

@@ -1,5 +1,6 @@
 package com.example.foodapp;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -42,10 +43,11 @@ public class FeaturedItemsAdapter extends RecyclerView.Adapter<FeaturedItemViewH
         Restaurant restaurant = foodDBModel.getRestaurantByID(foodItem.getRest_id());
 
         holder.img.setImageResource(foodItems.get(position).getImg());
-        String priceSring = "Rs. "+String.valueOf(foodItems.get(holder.getAdapterPosition()).getPrice());
+        Float price = foodItems.get(position).getPrice();
+        @SuppressLint("DefaultLocale") String priceString = "Rs. "+String.format("%.2f", price);
 
         holder.title.setText(foodItems.get(holder.getAdapterPosition()).getName());
-        holder.price.setText(priceSring);
+        holder.price.setText(priceString);
         holder.restaurant.setText(restaurant.getName());
 
 
