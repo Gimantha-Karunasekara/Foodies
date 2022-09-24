@@ -18,6 +18,8 @@ import com.google.android.material.bottomnavigation.BottomNavigationItemView;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
+import java.util.Arrays;
+
 
 public class LoginFragment extends Fragment {
 
@@ -95,6 +97,7 @@ public class LoginFragment extends Fragment {
                 }
                 catch (Exception e)
                 {
+                    Log.d("Login",e.getMessage());
                     Toast.makeText(view.getContext(),"Email or password is wrong, Try again",Toast.LENGTH_SHORT).show();
                 }
 

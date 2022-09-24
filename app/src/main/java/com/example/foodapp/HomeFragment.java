@@ -72,10 +72,12 @@ public class HomeFragment extends Fragment {
         BottomNavigationView navBar = getActivity().findViewById(R.id.bottom_nav);
         navBar.setVisibility(View.VISIBLE);
         View view = inflater.inflate(R.layout.fragment_home, container, false);
-        FoodDBModel foodAppDBModel = new FoodDBModel();
-        foodAppDBModel.load(view.getContext());
         TextView profile_name = view.findViewById(R.id.home_profile_name);
         ImageView imageView = view.findViewById(R.id.home_logo);
+        TextView welcome_msg = view.findViewById(R.id.home_welcome_msg);
+        FoodDBModel foodAppDBModel = new FoodDBModel();
+        foodAppDBModel.load(view.getContext());
+
         imageView.setImageResource(R.drawable.foodpoint_2);
 
         MainActivity main = (MainActivity)getActivity();
@@ -84,8 +86,13 @@ public class HomeFragment extends Fragment {
 
         if (!logedIn.equals("undefined"))
         {
+            welcome_msg.setText("Welcome back,");
             User user = foodAppDBModel.getUserByEmail(logedIn);
-            profile_name.setText("Welcome, " + user.getUsername());
+            profile_name.setText( user.getUsername());
+        }
+        else {
+            welcome_msg.setText("Welcome");
+            profile_name.setVisibility(View.GONE);
         }
         if (featuredFoodItems == null | featuredFoodItems.size() == 0)
         {

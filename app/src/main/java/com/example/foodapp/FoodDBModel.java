@@ -93,6 +93,8 @@ public class FoodDBModel {
         FoodDBCursor userCursor= new FoodDBCursor(cursor);
         User user;
         try{
+            if (cursor.getCount() == 0)
+                return null;
             userCursor.moveToFirst();
             user = userCursor.getUser();
         }

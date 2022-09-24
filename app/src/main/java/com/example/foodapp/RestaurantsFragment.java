@@ -48,6 +48,9 @@ public class RestaurantsFragment extends Fragment {
         FragmentManager fragmentManager= getActivity().getSupportFragmentManager();
         NavHostFragment navHostFragment = (NavHostFragment) fragmentManager.findFragmentById(R.id.nav_host_fragment);
         NavController navController = navHostFragment.getNavController();
+//        for (int i = 0; i < fragmentManager.getBackStackEntryCount(); i++) {
+//            fragmentManager.popBackStack();
+//        }
 
         FoodDBModel foodAppDBModel = new FoodDBModel();
         foodAppDBModel.load(view.getContext());

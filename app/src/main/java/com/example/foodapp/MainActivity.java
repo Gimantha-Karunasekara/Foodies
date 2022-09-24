@@ -7,6 +7,8 @@ import androidx.navigation.NavController;
 import androidx.navigation.fragment.NavHostFragment;
 import androidx.navigation.ui.NavigationUI;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -77,11 +79,18 @@ public class MainActivity extends AppCompatActivity  {
 
     }
 
-//    @Override
-//    public boolean onSupportNavigateUp() {
-//        onBackPressed();
-//        return super.onSupportNavigateUp();
-//    }
+    @Override
+    //https://stackoverflow.com/questions/2257963/how-to-show-a-dialog-to-confirm-that-the-user-wishes-to-exit-an-android-activity
+    public void onBackPressed() {
+        new AlertDialog.Builder(this).setMessage("Do you want to exit ?").setCancelable(true)
+                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                       finish();
+                    }
+                })
+                .setNegativeButton("No", null)
+                .show();
+    }
 
     public String getLogedIn(){return logedInUE;}
 

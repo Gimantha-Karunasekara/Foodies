@@ -119,6 +119,7 @@ public class SignUpFragment extends Fragment {
                 }
                 catch (Exception e)
                 {
+                    Log.e("Error",e.getMessage());
                     Toast.makeText(getContext(),"Email already registed !",Toast.LENGTH_SHORT).show();;
                 }
             }
