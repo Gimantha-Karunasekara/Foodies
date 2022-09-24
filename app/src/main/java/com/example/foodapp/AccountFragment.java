@@ -79,11 +79,12 @@ public class AccountFragment extends Fragment {
         TextView address_tv = view.findViewById(R.id.account_address);
         TextView phone_tv = view.findViewById(R.id.account_phone);
         Button logout_btn = view.findViewById(R.id.account_logout_btn);
+        MainActivity main = (MainActivity)getActivity();
+        main.getSupportActionBar().show();
 
         FoodDBModel foodAppDBModel = new FoodDBModel();
         foodAppDBModel.load(view.getContext());
 
-        MainActivity main = (MainActivity)getActivity();
         String logedIn = main.getLogedIn();
 
 

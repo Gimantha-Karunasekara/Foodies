@@ -78,13 +78,12 @@ public class CartFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         BottomNavigationView navBar = getActivity().findViewById(R.id.bottom_nav);
-        navBar.setVisibility(View.GONE);
+
 
         View view = inflater.inflate(R.layout.fragment_cart, container, false);
         NavController navController = Navigation.findNavController(getActivity(),R.id.nav_host_fragment);
         Button checkout_btn = view.findViewById(R.id.btn_cart_checkout);
         RecyclerView rv = view.findViewById(R.id.cartItems_recycler);
-        ConstraintLayout msg_layout = view.findViewById(R.id.cart_msg_layout);
         ImageView msg_img = view.findViewById(R.id.cart_msg_img);
         TextView msg_title = view.findViewById(R.id.cart_msg_title);
         TextView msg_description = view.findViewById(R.id.msg_description);
@@ -102,10 +101,11 @@ public class CartFragment extends Fragment {
 
         if (cartList.size() == 0)
         {
+            navBar.setVisibility(View.VISIBLE);
+            main.getSupportActionBar().show();
             rv.setVisibility(View.INVISIBLE);
             total_txt.setVisibility(View.INVISIBLE);
             checkout_btn.setVisibility(View.INVISIBLE);
-            msg_layout.setVisibility(View.VISIBLE);
             msg_img.setImageResource(R.drawable.cart_icon);
             total_txt.setVisibility(View.INVISIBLE);
             msg_title.setText("Cart is empty");
@@ -113,10 +113,11 @@ public class CartFragment extends Fragment {
         }
         else
         {
+            navBar.setVisibility(View.GONE);
+            main.getSupportActionBar().hide();
             total_txt.setVisibility(View.VISIBLE);
             rv.setVisibility(View.VISIBLE);
             checkout_btn.setVisibility(View.VISIBLE);
-            msg_layout.setVisibility(View.INVISIBLE);
             total_txt.setVisibility(View.VISIBLE);
             rv.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
             CartAdapter adapter = new CartAdapter(cartList, getContext(), CartFragment.this);
@@ -137,7 +138,6 @@ public class CartFragment extends Fragment {
 
                         rv.setVisibility(View.INVISIBLE);
                         total_txt.setVisibility(View.INVISIBLE);
-                        msg_layout.setVisibility(View.VISIBLE);
                         checkout_btn.setVisibility(View.INVISIBLE);
                         msg_img.setImageResource(R.drawable.done_icon);
                         back_btn.setVisibility(View.VISIBLE);

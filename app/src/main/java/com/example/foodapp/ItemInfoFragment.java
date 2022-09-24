@@ -84,11 +84,12 @@ public class ItemInfoFragment extends Fragment {
         Button remove_btn = view.findViewById(R.id.info_remove_btn);
         Button add_to_cart = view.findViewById(R.id.info_addToCart_btn);
         FloatingActionButton back_btn = view.findViewById(R.id.info_back_btn);
+        MainActivity main = (MainActivity)getActivity();
+        main.getSupportActionBar().hide();
 
 
         FoodDBModel foodAppDBModel = new FoodDBModel();
         foodAppDBModel.load(view.getContext());
-        MainActivity main = (MainActivity)getActivity();
         String logedIn = main.getLogedIn();
         ArrayList<CartItem> cartList = main.getCartList();
 

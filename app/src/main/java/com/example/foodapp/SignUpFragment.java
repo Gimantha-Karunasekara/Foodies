@@ -81,6 +81,8 @@ public class SignUpFragment extends Fragment {
         EditText phone_txt = view.findViewById(R.id.phone_txt);
         EditText address_txt= view.findViewById(R.id.address_txt);
         FloatingActionButton back_btn = view.findViewById(R.id.signup_back_btn);
+        MainActivity main = (MainActivity)getActivity();
+        main.getSupportActionBar().hide();
 
 
         Button signup_btn = view.findViewById(R.id.signup_btn);

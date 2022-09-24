@@ -6,12 +6,12 @@
         <type value="RUNNING_DEVICE_TARGET" />
         <deviceKey>
           <Key>
-            <type value="VIRTUAL_DEVICE_PATH" />
-            <value value="$USER_HOME$/.android/avd/Nexus_9_API_33.avd" />
+            <type value="SERIAL_NUMBER" />
+            <value value="adb-R58R33EY29J-hYvGOS._adb-tls-connect._tcp." />
           </Key>
         </deviceKey>
       </Target>
     </runningDeviceTargetSelectedWithDropDown>
-    <timeTargetWasSelectedWithDropDown value="2022-09-24T10:19:08.398951Z" />
+    <timeTargetWasSelectedWithDropDown value="2022-09-24T15:26:27.895491Z" />
   </component>
 </project>

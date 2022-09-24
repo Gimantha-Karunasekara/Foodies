@@ -3,13 +3,17 @@ package com.example.foodapp;
 import android.app.Dialog;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
+import androidx.navigation.fragment.NavHostFragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -55,18 +59,23 @@ public class RestaurantPageFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        BottomNavigationView navBar = getActivity().findViewById(R.id.bottom_nav);
-        navBar.setVisibility(View.VISIBLE);
+
         View view = inflater.inflate(R.layout.fragment_restaurant_page, container, false);
         NavController navController = Navigation.findNavController(getActivity(),R.id.nav_host_fragment);
         TextView title = view.findViewById(R.id.restaurant_detail_title);
         TextView about_label = view.findViewById(R.id.restaurant_about);
         ImageView img = view.findViewById(R.id.restaurant_detail_img);
         FloatingActionButton back_btn = view.findViewById(R.id.restaurants_back_btn);
-
+        RecyclerView rv = view.findViewById(R.id.foodItemsRecyclerView);
+        BottomNavigationView navBar = getActivity().findViewById(R.id.bottom_nav);
+        MainActivity main = (MainActivity)getActivity();
         FoodDBModel foodAppDBModel = new FoodDBModel();
         foodAppDBModel.load(view.getContext());
-        MainActivity main = (MainActivity)getActivity();
+        main.getSupportActionBar().hide();
+
+        navBar.setVisibility(View.VISIBLE);
+        main.getSupportActionBar().hide();
+
         ArrayList<CartItem> cartList = main.getCartList();
         Dialog popupDialog = new Dialog(main);
 
@@ -81,10 +90,8 @@ public class RestaurantPageFragment extends Fragment {
 
         title.setText(restaurant.getName());
         img.setImageResource(restaurant.getImg_drawableId());
+        ;
 
-
-        RecyclerView rv = view.findViewById(R.id.foodItemsRecyclerView);
-        FloatingActionButton cartButton =  view.findViewById(R.id.cart_button);
         rv.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
         FoodItemsAdapter foodItemsAdapter = new FoodItemsAdapter(foodItems,cartList,getContext(),main);
         rv.setAdapter(foodItemsAdapter);
@@ -115,12 +122,6 @@ public class RestaurantPageFragment extends Fragment {
             }
         });
 
-        cartButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                navController.navigate(R.id.RestaurantPageFragment_to_cartFragment);
-            }
-        });
 
         back_btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -131,4 +132,5 @@ public class RestaurantPageFragment extends Fragment {
 
         return view;
     }
+
 }

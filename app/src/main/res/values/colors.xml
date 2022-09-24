@@ -10,4 +10,8 @@
     <color name="pastelPurple">#dee2ff</color>
     <color name="transparent"> #00000000 </color>
     <color name="gray">#f8f9fa</color>
+    <color name="yellow">#f5cc00</color>
+    <color name="shadeOfBlack">#0a0908</color>
+
+
 </resources>

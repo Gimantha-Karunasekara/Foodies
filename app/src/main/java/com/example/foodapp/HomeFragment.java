@@ -69,18 +69,23 @@ public class HomeFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_home, container, false);
         BottomNavigationView navBar = getActivity().findViewById(R.id.bottom_nav);
         navBar.setVisibility(View.VISIBLE);
-        View view = inflater.inflate(R.layout.fragment_home, container, false);
         TextView profile_name = view.findViewById(R.id.home_profile_name);
-        ImageView imageView = view.findViewById(R.id.home_logo);
+        ImageView home_logo = view.findViewById(R.id.home_logo);
         TextView welcome_msg = view.findViewById(R.id.home_welcome_msg);
+        home_logo.setImageResource(R.drawable.foodies_logo);
+        RecyclerView rv = view.findViewById(R.id.featured_rv);
+        MainActivity main = (MainActivity)getActivity();
+        main.getSupportActionBar().show();
+
+
         FoodDBModel foodAppDBModel = new FoodDBModel();
         foodAppDBModel.load(view.getContext());
 
-        imageView.setImageResource(R.drawable.foodpoint_2);
 
-        MainActivity main = (MainActivity)getActivity();
+
         String logedIn = main.getLogedIn();
         featuredFoodItems = main.getFeaturedList();
 
@@ -99,7 +104,6 @@ public class HomeFragment extends Fragment {
             featuredFoodItems = foodAppDBModel.getFeaturedFoodItems();
         }
 
-        RecyclerView rv = view.findViewById(R.id.featured_rv);
         rv.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
         FeaturedItemsAdapter featuredItemsAdapter = new FeaturedItemsAdapter(featuredFoodItems,getContext(),main,foodAppDBModel);
         rv.setAdapter(featuredItemsAdapter);

@@ -41,25 +41,23 @@ public class RestaurantsFragment extends Fragment {
                              @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
         View view =  inflater.inflate(R.layout.fragment_restaurants, container, false);
-
+        RecyclerView rv = view.findViewById(R.id.restaurant_rv);
+        FrameLayout frame = view.findViewById(R.id.restaurant_frame);
         BottomNavigationView navBar = getActivity().findViewById(R.id.bottom_nav);
-        navBar.setVisibility(View.VISIBLE);
-
         FragmentManager fragmentManager= getActivity().getSupportFragmentManager();
         NavHostFragment navHostFragment = (NavHostFragment) fragmentManager.findFragmentById(R.id.nav_host_fragment);
         NavController navController = navHostFragment.getNavController();
-//        for (int i = 0; i < fragmentManager.getBackStackEntryCount(); i++) {
-//            fragmentManager.popBackStack();
-//        }
-
+        MainActivity main = (MainActivity)getActivity();
         FoodDBModel foodAppDBModel = new FoodDBModel();
         foodAppDBModel.load(view.getContext());
+        navBar.setVisibility(View.VISIBLE);
+        main.getSupportActionBar().show();
 
         restaurantArrayList = foodAppDBModel.getAllRestaurants();
 
+        // safe args
         Bundle bundle = getArguments();
         RestaurantsFragmentArgs args = RestaurantsFragmentArgs.fromBundle(bundle);
-        MainActivity mainActivity;
 
         int redirectID = args.getRedirectRestaurantID();
 
@@ -74,8 +72,7 @@ public class RestaurantsFragment extends Fragment {
 
 //        NavController navController = Navigation.findNavController();
 
-        RecyclerView rv = view.findViewById(R.id.restaurant_rv);
-        FrameLayout frame = view.findViewById(R.id.restaurant_frame);
+
         String tag = (String)frame.getTag();
         if (tag.equals("restaurant_portrait"))
         {
