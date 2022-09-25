@@ -155,13 +155,15 @@ public class SeedDatabase {
                 new FoodItem(2,"Doughnut", "Stuffed with creamy chocolate and " +
                         "a even chocolate coating with grated chocolate topping \n" +
                         "Soft and scrumptious donut dipped in tempting dark chocolate ",R.drawable.res3_doughnut, 300.00f, 3),
-                new FoodItem(3,"Banana Pie", "Classic ice cream dessert with ice cream, " +
+                new FoodItem(3,"Banana Split", "Classic ice cream dessert with ice cream, " +
                         "fresh banana, pineapple, strawberries, nuts and \n" +
                         "topped with chocolate syrup ",R.drawable.res3_banana_split, 500.00f, 3),
                 new FoodItem(4,"Lava Cake", "A rich chocolate cake with a slightly crunchy " +
                         "crust and a warm liquid chocolate center that \n" +
                         "flows out ",R.drawable.res3_lava_cake, 400.00f, 3),
-                new FoodItem(5,"Lemon Cake", "Lemon sponge cake with lemon sugar drizzle icing  ",R.drawable.res3_lemon_cake, 350.00f, 3),
+                new FoodItem(5,"Lemon Cake", "Lemon sponge cake with lemon sugar drizzle icing. reminiscent of a simple" +
+                        " vanilla or white cake made from scratch, with an added " +
+                        "layer of brightness and zing from fresh lemon  ",R.drawable.res3_lemon_cake, 350.00f, 3),
 
                 new FoodItem(1,"Dim Sum", "Traditional Chinese meal made up of" +
                         " small plates of dumplings and other snack dishes ",R.drawable.res4_dim_sum, 700.00f, 4),
