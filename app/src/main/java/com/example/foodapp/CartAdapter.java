@@ -5,7 +5,6 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -31,12 +30,11 @@ public class CartAdapter extends RecyclerView.Adapter<CartViewHolder> {
         dbModel.load(context);
         CartItem cartItem = cartList.get(holder.getAdapterPosition());
         FoodItem foodItem = dbModel.getFoodItemById(cartItem.getItem_id());
-        @SuppressLint("DefaultLocale") String price = String.format("%.2f", foodItem.getPrice() * cartItem.getCount());
-        String priceString = "Rs. "+String.valueOf(foodItem.getPrice() * cartItem.getCount());
+        @SuppressLint("DefaultLocale") String price = "Rs. "+String.format("%.2f", foodItem.getPrice() * cartItem.getCount());
 
         holder.cart_itemTitle.setText(foodItem.getName());
         holder.cart_itemCount.setText(String.valueOf(cartItem.getCount()));
-        holder.cart_itemPrice.setText(priceString);
+        holder.cart_itemPrice.setText(price);
 
         holder.cart_itemAdd.setOnClickListener(new View.OnClickListener() {
             @Override

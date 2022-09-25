@@ -31,12 +31,6 @@ public class ItemInfoFragment extends Fragment {
         // Required empty public constructor
     }
 
-
-    public static ItemInfoFragment newInstance(String param1, String param2) {
-        ItemInfoFragment fragment = new ItemInfoFragment();
-        return fragment;
-    }
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -66,7 +60,7 @@ public class ItemInfoFragment extends Fragment {
 
         FoodDBModel foodAppDBModel = new FoodDBModel();
         foodAppDBModel.load(view.getContext());
-        String logedIn = main.getLogedIn();
+        String loggedIn = main.getLoggedIn();
         ArrayList<CartItem> cartList = main.getCartList();
 
         // args
@@ -114,7 +108,7 @@ public class ItemInfoFragment extends Fragment {
                     {
                         CartItem cartItem = new CartItem(
                                 foodItem.getID(),
-                                Integer.parseInt(count.getText().toString()), logedIn,"time");
+                                Integer.parseInt(count.getText().toString()), loggedIn,"time");
                         cartList.add(cartItem);
                         // show snack bar above bottom nav - https://stackoverflow.com/questions/36332487/move-snackbar-above-the-bottom-bar
                         Snackbar snackbar = Snackbar.make(view,"Items added to cart",Snackbar.LENGTH_SHORT);

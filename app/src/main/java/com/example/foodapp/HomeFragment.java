@@ -20,19 +20,10 @@ import java.util.ArrayList;
 public class HomeFragment extends Fragment {
 
 
-    private static ArrayList<FoodItem> featuredFoodItems;
     public HomeFragment() {
         // Required empty public constructor
     }
 
-
-    public static HomeFragment newInstance(String param1, String param2) {
-        HomeFragment fragment = new HomeFragment();
-        Bundle args = new Bundle();
-        fragment.setArguments(args);
-
-        return fragment;
-    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -45,6 +36,7 @@ public class HomeFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
         BottomNavigationView navBar = getActivity().findViewById(R.id.bottom_nav);
+
         navBar.setVisibility(View.VISIBLE);
         TextView profile_name = view.findViewById(R.id.home_profile_name);
         ImageView home_logo = view.findViewById(R.id.home_logo);
@@ -52,6 +44,7 @@ public class HomeFragment extends Fragment {
         home_logo.setImageResource(R.drawable.foodies_logo);
         RecyclerView rv = view.findViewById(R.id.featured_rv);
         MainActivity main = (MainActivity)getActivity();
+        ArrayList<FoodItem> featuredFoodItems = main.getFeaturedList();
         main.getSupportActionBar().show();
 
 
@@ -60,8 +53,7 @@ public class HomeFragment extends Fragment {
 
 
 
-        String logedIn = main.getLogedIn();
-        featuredFoodItems = main.getFeaturedList();
+        String logedIn = main.getLoggedIn();
 
         if (!logedIn.equals("undefined"))
         {
@@ -79,7 +71,7 @@ public class HomeFragment extends Fragment {
         }
 
         rv.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
-        FeaturedItemsAdapter featuredItemsAdapter = new FeaturedItemsAdapter(featuredFoodItems,getContext(),foodAppDBModel);
+        FeaturedItemsAdapter featuredItemsAdapter = new FeaturedItemsAdapter(featuredFoodItems,foodAppDBModel);
         rv.setAdapter(featuredItemsAdapter);
 
         return view;

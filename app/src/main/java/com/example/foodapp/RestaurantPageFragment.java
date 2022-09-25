@@ -2,42 +2,25 @@ package com.example.foodapp;
 
 import android.app.Dialog;
 import android.os.Bundle;
-
-import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
-import androidx.navigation.fragment.NavHostFragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
 import android.view.LayoutInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-
 import java.util.ArrayList;
 
 public class RestaurantPageFragment extends Fragment {
 
-    private ArrayList<FoodItem> foodItems;
-
     public RestaurantPageFragment() {
     }
-
-    public static RestaurantPageFragment newInstance(String param1, String param2) {
-        RestaurantPageFragment fragment = new RestaurantPageFragment();
-        Bundle args = new Bundle();
-        return fragment;
-    }
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -71,13 +54,13 @@ public class RestaurantPageFragment extends Fragment {
         RestaurantPageFragmentArgs args = RestaurantPageFragmentArgs.fromBundle(bundle);
 
         //DB
-        foodItems = foodAppDBModel.getFoodItems(args.getRestaurantID());// food items list
+        ArrayList<FoodItem> foodItems = foodAppDBModel.getFoodItems(args.getRestaurantID());// food items list
         Restaurant restaurant = foodAppDBModel.getRestaurantByID(args.getRestaurantID());
 
 
         title.setText(restaurant.getName());
         img.setImageResource(restaurant.getImg_drawableId());
-        ;
+
 
         rv.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
         FoodItemsAdapter foodItemsAdapter = new FoodItemsAdapter(foodItems,main);

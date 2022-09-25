@@ -19,7 +19,6 @@ public class FoodDBSchema {
             public static final String IMAGE = "img_res";
             public static final String PRICE = "price";
             public static final String RESTAURANT_ID = "restaurant_id";
-            public static final String FEATURED = "featured";
         }
     }
     public static class userTable{

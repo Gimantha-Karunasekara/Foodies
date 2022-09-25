@@ -5,7 +5,7 @@ import android.view.View;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class SeedDatabse {
+public class SeedDatabase {
 
     public static void initAll(View view)
     {

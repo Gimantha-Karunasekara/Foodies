@@ -1,26 +1,12 @@
 package com.example.foodapp;
-
-import android.content.Intent;
-import android.os.Build;
-import android.text.Layout;
-import android.view.Gravity;
-import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.PopupWindow;
 import android.widget.TextView;
-
 import androidx.annotation.NonNull;
-import androidx.annotation.RequiresApi;
 import androidx.cardview.widget.CardView;
-import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
-
 import java.util.ArrayList;
 
 public class FoodItemViewHolder extends RecyclerView.ViewHolder {
@@ -30,10 +16,8 @@ public class FoodItemViewHolder extends RecyclerView.ViewHolder {
     ImageView image_Item;
     CardView item_Card;
 
-    private int itemCount;
 
-
-    public FoodItemViewHolder(@NonNull View itemView, ArrayList<FoodItem> foodItems, LayoutInflater inflater, MainActivity mainActivity) {
+    public FoodItemViewHolder(@NonNull View itemView, ArrayList<FoodItem> foodItems) {
         super(itemView);
         text_Title = itemView.findViewById(R.id.txt_title);
         text_Description = itemView.findViewById(R.id.txt_description);

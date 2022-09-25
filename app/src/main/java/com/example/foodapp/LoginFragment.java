@@ -5,31 +5,20 @@ import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
-
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-
-import com.google.android.material.bottomnavigation.BottomNavigationItemView;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-
-import java.util.Arrays;
 
 
 public class LoginFragment extends Fragment {
 
     public LoginFragment() {
         // Required empty public constructor
-    }
-
-    public static LoginFragment newInstance(String param1, String param2) {
-        LoginFragment fragment = new LoginFragment();
-        return fragment;
     }
 
     @Override
@@ -56,11 +45,6 @@ public class LoginFragment extends Fragment {
         FoodDBModel foodAppDBModel = new FoodDBModel();
         foodAppDBModel.load(view.getContext());
 
-        BottomNavigationView b_nav = container.getRootView().findViewById(R.id.bottom_nav);
-
-
-        String logedIn = main.getLogedIn();
-
         login_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -72,7 +56,7 @@ public class LoginFragment extends Fragment {
 
                     if (user.getPassword().equals(password))
                     {
-                        ((MainActivity) getActivity()).setLogedInUE(email);
+                        ((MainActivity) getActivity()).setLoggedInUE(email);
                         navController.popBackStack();
                     }
                     else

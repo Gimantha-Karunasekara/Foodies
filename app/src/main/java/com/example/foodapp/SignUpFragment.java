@@ -27,17 +27,9 @@ public class SignUpFragment extends Fragment {
         // Required empty public constructor
     }
 
-
-    public static SignUpFragment newInstance(String param1, String param2) {
-        SignUpFragment fragment = new SignUpFragment();
-        return fragment;
-    }
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-        }
     }
 
     @Override
@@ -98,7 +90,7 @@ public class SignUpFragment extends Fragment {
                 catch (Exception e)
                 {
                     Log.e("Error",e.getMessage());
-                    Toast.makeText(getContext(),"Email already registed !",Toast.LENGTH_SHORT).show();;
+                    Toast.makeText(getContext(),"Email already registered !",Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -113,9 +105,4 @@ public class SignUpFragment extends Fragment {
         return view;
     }
 
-    private void signup(View view)
-    {
-
-
-    }
 }

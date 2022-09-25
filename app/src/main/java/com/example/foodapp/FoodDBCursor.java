@@ -41,7 +41,7 @@ public class FoodDBCursor extends CursorWrapper
         int img = getInt(getColumnIndex(itemsTable.Cols.IMAGE));
         float price = getFloat(getColumnIndex(itemsTable.Cols.PRICE));
         int restaurant_id = getInt(getColumnIndex(itemsTable.Cols.RESTAURANT_ID));
-        FoodItem item = new FoodItem(id, name, desc,img,price,restaurant_id);;
+        FoodItem item = new FoodItem(id, name, desc,img,price,restaurant_id);
         return item;
     }
 

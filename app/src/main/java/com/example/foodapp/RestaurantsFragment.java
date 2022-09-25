@@ -22,9 +22,7 @@ import java.util.ArrayList;
 
 public class RestaurantsFragment extends Fragment {
 
-    private ArrayList<Restaurant> restaurantArrayList = new ArrayList<>();
-
-    public RestaurantsFragment(){};
+    public RestaurantsFragment(){}
 
     public static RestaurantsFragment newInstance() {
 
@@ -53,7 +51,7 @@ public class RestaurantsFragment extends Fragment {
         navBar.setVisibility(View.VISIBLE);
         main.getSupportActionBar().show();
 
-        restaurantArrayList = foodAppDBModel.getAllRestaurants();
+        ArrayList<Restaurant> restaurantArrayList = foodAppDBModel.getAllRestaurants();
 
         // safe args
         Bundle bundle = getArguments();
@@ -66,7 +64,6 @@ public class RestaurantsFragment extends Fragment {
             RestaurantsFragmentDirections.ActionRestaurantsFragmentToRestaurantPageFragment direction
                     = RestaurantsFragmentDirections.actionRestaurantsFragmentToRestaurantPageFragment();
             direction.setRestaurantID(redirectID);
-            redirectID = 0;
             navController.navigate(direction);
         }
 

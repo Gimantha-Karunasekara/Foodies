@@ -1,19 +1,11 @@
 package com.example.foodapp;
 
 import android.annotation.SuppressLint;
-import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
-
 import androidx.annotation.NonNull;
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
-
-import com.google.android.material.snackbar.Snackbar;
-
 import java.util.ArrayList;
 
 public class FeaturedItemsAdapter extends RecyclerView.Adapter<FeaturedItemViewHolder> {
@@ -21,7 +13,7 @@ public class FeaturedItemsAdapter extends RecyclerView.Adapter<FeaturedItemViewH
     private ArrayList<FoodItem> foodItems;
     private FoodDBModel foodDBModel;
 
-    public FeaturedItemsAdapter(ArrayList<FoodItem> foodItems, Context context, FoodDBModel foodDBModel) {
+    public FeaturedItemsAdapter(ArrayList<FoodItem> foodItems, FoodDBModel foodDBModel) {
         this.foodItems = foodItems;
         this.foodDBModel = foodDBModel;
     }

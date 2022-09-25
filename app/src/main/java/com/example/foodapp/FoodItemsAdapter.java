@@ -1,21 +1,11 @@
 package com.example.foodapp;
 
-import static android.content.Context.LAYOUT_INFLATER_SERVICE;
-
 import android.annotation.SuppressLint;
-import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
-
 import androidx.annotation.NonNull;
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
-
-import com.google.android.material.snackbar.Snackbar;
-
 import java.util.ArrayList;
 
 public class FoodItemsAdapter extends RecyclerView.Adapter<FoodItemViewHolder> {
@@ -33,7 +23,7 @@ public class FoodItemsAdapter extends RecyclerView.Adapter<FoodItemViewHolder> {
     public FoodItemViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater layoutInflater = LayoutInflater.from((parent.getContext()));
         View view = layoutInflater.inflate(R.layout.fooditem_itemview, parent, false);
-        FoodItemViewHolder foodItemViewHolder = new FoodItemViewHolder(view,foodItems, layoutInflater,main);
+        FoodItemViewHolder foodItemViewHolder = new FoodItemViewHolder(view,foodItems);
         return foodItemViewHolder;
     }
 

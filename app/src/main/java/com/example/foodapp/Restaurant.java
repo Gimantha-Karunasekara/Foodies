@@ -19,11 +19,6 @@ public class Restaurant {
         return rest_Id;
     }
 
-    public void setRest_Id(int rest_Id)
-    {
-        this.rest_Id = rest_Id;
-    }
-
     public String getName()
     {
         return name;
@@ -39,20 +34,9 @@ public class Restaurant {
         return desc;
     }
 
-    public void setDesc(String desc)
-    {
-        this.desc = desc;
-    }
-
     public int getImg_drawableId()
     {
         return img_drawableId;
     }
-
-    public void setImg_drawableId(int img_drawableId)
-    {
-        this.img_drawableId = img_drawableId;
-    }
-
 
 }

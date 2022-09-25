@@ -62,7 +62,7 @@ public class FoodDBModel {
         return restaurant;
     }
 
-    public void addUser (User user) throws Exception
+    public void addUser (User user)
     {
         ContentValues cv = new ContentValues();
         cv.put(userTable.Cols.USERNAME, user.getUsername());
@@ -71,7 +71,7 @@ public class FoodDBModel {
         cv.put(userTable.Cols.ADDRESS, user.getAddress());
         cv.put(userTable.Cols.PHONE, user.getPhone());
         db.insertOrThrow(userTable.NAME, null, cv);
-    };
+    }
 
     public User getUserByEmail(String email)
     {
@@ -178,7 +178,8 @@ public class FoodDBModel {
         }
         catch (Exception e)
         {
-
+            Log.e("AddCartItem Error",e.getMessage());
+            //for debugging purposes
         }
 
     }

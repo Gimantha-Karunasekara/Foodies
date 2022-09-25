@@ -7,22 +7,18 @@ import androidx.fragment.app.FragmentManager;
 import androidx.navigation.NavController;
 import androidx.navigation.fragment.NavHostFragment;
 import androidx.navigation.ui.NavigationUI;
-
 import android.app.AlertDialog;
-import android.app.Dialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
-
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
-
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity  {
 
-    private static String logedInUE = "undefined"; // Currently logged in user
+    private static String loggedInUE = "undefined"; // Currently logged in user
     private static ArrayList<CartItem> cartList = new ArrayList<>(); // cart item list
     private static ArrayList<FoodItem> featuredList = new ArrayList<>(); // home page food list
 
@@ -33,7 +29,7 @@ public class MainActivity extends AppCompatActivity  {
 
         View v = getWindow().getDecorView().findViewById(R.id.homeFragment);
 
-        SeedDatabse.initAll(v); // Initialize database (Add data to database of first run)
+        SeedDatabase.initAll(v); // Initialize database (Add data to database of first run)
 
         FragmentManager frag = getSupportFragmentManager();
 
@@ -98,9 +94,10 @@ public class MainActivity extends AppCompatActivity  {
     }
 
 
-    public String getLogedIn(){return logedInUE;}
+    public String getLoggedIn(){return loggedInUE;}
 
-    public void setLogedInUE(String email){logedInUE=email;}
+    public void setLoggedInUE(String email){
+        loggedInUE =email;}
 
     public ArrayList<CartItem> getCartList(){return cartList;}
 

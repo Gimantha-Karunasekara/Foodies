@@ -20,10 +20,6 @@ public class User {
     {
         this.address = address;
     }
-    public void setPhone(int phone)
-    {
-        this.phone = phone;
-    }
 
     public String getUsername(){return username;}
     public String getEmail(){return email;}

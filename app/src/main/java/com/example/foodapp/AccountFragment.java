@@ -13,7 +13,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -24,12 +23,6 @@ public class AccountFragment extends Fragment {
 
     public AccountFragment() {
         // Required empty public constructor
-    }
-
-
-    public static AccountFragment newInstance(String param1, String param2) {
-        AccountFragment fragment = new AccountFragment();
-        return fragment;
     }
 
     @Override
@@ -57,7 +50,7 @@ public class AccountFragment extends Fragment {
         FoodDBModel foodAppDBModel = new FoodDBModel();
         foodAppDBModel.load(view.getContext());
 
-        String logedIn = main.getLogedIn();
+        String logedIn = main.getLoggedIn();
 
 
         if (logedIn.equals("undefined"))
@@ -73,7 +66,7 @@ public class AccountFragment extends Fragment {
             phone_tv.setText(String.valueOf(user.getPhone()));
 
 
-            ArrayList<CartItem> orderHistory = foodAppDBModel.getCartListByEmail(main.getLogedIn());
+            ArrayList<CartItem> orderHistory = foodAppDBModel.getCartListByEmail(main.getLoggedIn());
 
             RecyclerView rv = view.findViewById(R.id.order_history_rv);
             rv.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
@@ -85,7 +78,7 @@ public class AccountFragment extends Fragment {
         logout_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                main.setLogedInUE("undefined");
+                main.setLoggedInUE("undefined");
                 navController.navigate(R.id.loginFragment);
             }
         });
