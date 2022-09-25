@@ -82,7 +82,7 @@ public class RestaurantsFragment extends Fragment {
         {
             rv.setLayoutManager(new GridLayoutManager(getContext(),2,GridLayoutManager.VERTICAL,false));
         }
-        RestaurantsAdapter restaurantsAdapter = new RestaurantsAdapter(restaurantArrayList,getContext());
+        RestaurantsAdapter restaurantsAdapter = new RestaurantsAdapter(restaurantArrayList);
         rv.setAdapter(restaurantsAdapter);
         return view;
     }

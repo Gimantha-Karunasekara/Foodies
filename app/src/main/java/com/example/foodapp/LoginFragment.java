@@ -27,15 +27,6 @@ public class LoginFragment extends Fragment {
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment LoginFragment.
-     */
-    // TODO: Rename and change types and number of parameters
     public static LoginFragment newInstance(String param1, String param2) {
         LoginFragment fragment = new LoginFragment();
         return fragment;
@@ -44,9 +35,6 @@ public class LoginFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-
-        }
     }
 
     @Override
@@ -69,7 +57,6 @@ public class LoginFragment extends Fragment {
         foodAppDBModel.load(view.getContext());
 
         BottomNavigationView b_nav = container.getRootView().findViewById(R.id.bottom_nav);
-//        b_nav.setSelectedItemId(R.id.accountFragment);
 
 
         String logedIn = main.getLogedIn();
@@ -86,7 +73,6 @@ public class LoginFragment extends Fragment {
                     if (user.getPassword().equals(password))
                     {
                         ((MainActivity) getActivity()).setLogedInUE(email);
-//                        navController.navigate(R.id.accountFragment);
                         navController.popBackStack();
                     }
                     else
@@ -98,7 +84,7 @@ public class LoginFragment extends Fragment {
                 }
                 catch (Exception e)
                 {
-                    Log.d("Login",e.getMessage());
+
                     Toast.makeText(view.getContext(),"Email or password is wrong, Try again",Toast.LENGTH_SHORT).show();
                 }
 

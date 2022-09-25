@@ -16,7 +16,6 @@ import java.util.ArrayList;
 public class RestaurantViewHolder extends RecyclerView.ViewHolder {
     ImageView restaurant_img;
     TextView restaurant_name_label;
-    TextView restaurant_desc_label;
     ConstraintLayout restaurant_layout;
     public RestaurantViewHolder(@NonNull View view, ArrayList<Restaurant> restaurantList)
     {

@@ -56,10 +56,11 @@
                     android:layout_margin="20dp"
                     android:fontFamily="@font/ubermovebold"
                     android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                    android:textSize="34sp"
                     android:textStyle="bold"
-                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintBottom_toTopOf="@+id/restaurant_about"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintBottom_toTopOf="@+id/restaurant_about">
+                    app:layout_constraintStart_toStartOf="parent">
 
 
                 </TextView>

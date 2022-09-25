@@ -7,9 +7,6 @@ import java.util.Arrays;
 
 public class SeedDatabse {
 
-    private static boolean seeded = false;
-
-
     public static void initAll(View view)
     {
 
@@ -18,7 +15,7 @@ public class SeedDatabse {
 
         ArrayList<Restaurant> restaurants = foodAppDBModel.getAllRestaurants();
 
-        if (restaurants.size() == 0)
+        if (restaurants.size() == 0) // only re-load items to database if not initialized already
         {
             initRestaurantData(foodAppDBModel);
             initUseres(foodAppDBModel);
@@ -100,11 +97,11 @@ public class SeedDatabse {
     {
         try {
 
-            User user = new User("Gimantha", "gimantha@gmail.com", "gimantha123",
+            User user1 = new User("Gimantha", "gimantha@gmail.com", "gimantha123",
                     "No50, subarathi road, kuliyapitiya", 0771231231);
-            User user1 = new User("Pamo", "pamo@gmail.com","pamo321","No.25/1, Jayasinghe road, Colombo 00600", 0752341232 );
-            foodAppDBModel.addUser(user);
+            User user2 = new User("Pamo", "pamo@gmail.com","pamo321","No.25/1, Jayasinghe road, Colombo 00600", 0752341232 );
             foodAppDBModel.addUser(user1);
+            foodAppDBModel.addUser(user2);
         }
         catch (Exception e)
         {

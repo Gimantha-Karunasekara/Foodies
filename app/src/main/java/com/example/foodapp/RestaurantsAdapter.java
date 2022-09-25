@@ -16,12 +16,10 @@ import java.util.ArrayList;
 public class RestaurantsAdapter extends RecyclerView.Adapter<RestaurantViewHolder> {
 
     private ArrayList<Restaurant> restaurantList;
-    private Context context;
 
-    public RestaurantsAdapter(ArrayList<Restaurant> restaurantList, Context c)
+    public RestaurantsAdapter(ArrayList<Restaurant> restaurantList)
     {
         this.restaurantList = restaurantList;
-        this.context = c;
     }
 
     @NonNull
@@ -38,14 +36,6 @@ public class RestaurantsAdapter extends RecyclerView.Adapter<RestaurantViewHolde
     public void onBindViewHolder(@NonNull RestaurantViewHolder holder, int position) {
         holder.restaurant_img.setImageResource(restaurantList.get(position).getImg_drawableId());
         holder.restaurant_name_label.setText(restaurantList.get(position).getName());
-//        NavController navController = Navigation.findNavController(,R.id.nav_host_fragment);
-//
-//        holder.restaurant_name_label.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                navController.navigate(R.id.action_restaurantFragment_to_foodItemsFragment);
-//            }
-//        });
 
     }
 

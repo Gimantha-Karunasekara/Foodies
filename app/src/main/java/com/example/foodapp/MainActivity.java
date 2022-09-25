@@ -21,10 +21,10 @@ import com.google.android.material.navigation.NavigationBarView;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity  {
-    private static String logedInUE = "undefined";
-    private static ArrayList<CartItem> cartList = new ArrayList<>();
-    private static ArrayList<FoodItem> featuredList = new ArrayList<>();
-    private static FoodDBModel db = new FoodDBModel();
+
+    private static String logedInUE = "undefined"; // Currently logged in user
+    private static ArrayList<CartItem> cartList = new ArrayList<>(); // cart item list
+    private static ArrayList<FoodItem> featuredList = new ArrayList<>(); // home page food list
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,7 +32,8 @@ public class MainActivity extends AppCompatActivity  {
         setContentView(R.layout.activity_main);
 
         View v = getWindow().getDecorView().findViewById(R.id.homeFragment);
-        SeedDatabse.initAll(v);
+
+        SeedDatabse.initAll(v); // Initialize database (Add data to database of first run)
 
         FragmentManager frag = getSupportFragmentManager();
 
@@ -102,8 +103,6 @@ public class MainActivity extends AppCompatActivity  {
     public void setLogedInUE(String email){logedInUE=email;}
 
     public ArrayList<CartItem> getCartList(){return cartList;}
-
-    public FoodDBModel getDB(){return db;}
 
     public ArrayList<FoodItem> getFeaturedList(){return featuredList;}
 

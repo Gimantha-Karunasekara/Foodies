@@ -21,14 +21,10 @@ import java.util.ArrayList;
 public class FoodItemsAdapter extends RecyclerView.Adapter<FoodItemViewHolder> {
 
     private ArrayList<FoodItem> foodItems;
-    private Context context;
-    private ArrayList<CartItem> cartItems;
     private MainActivity main;
 
-    public FoodItemsAdapter(ArrayList<FoodItem> foodItems,ArrayList<CartItem> cartItems, Context context, MainActivity main) {
+    public FoodItemsAdapter(ArrayList<FoodItem> foodItems, MainActivity main) {
         this.foodItems = foodItems;
-        this.context = context;
-        this.cartItems = cartItems;
         this.main = main;
     }
 

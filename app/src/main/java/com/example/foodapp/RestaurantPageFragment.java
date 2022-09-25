@@ -27,14 +27,6 @@ import java.util.ArrayList;
 
 public class RestaurantPageFragment extends Fragment {
 
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
-
     private ArrayList<FoodItem> foodItems;
 
     public RestaurantPageFragment() {
@@ -43,9 +35,6 @@ public class RestaurantPageFragment extends Fragment {
     public static RestaurantPageFragment newInstance(String param1, String param2) {
         RestaurantPageFragment fragment = new RestaurantPageFragment();
         Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
         return fragment;
     }
 
@@ -75,7 +64,6 @@ public class RestaurantPageFragment extends Fragment {
 
         navBar.setVisibility(View.VISIBLE);
 
-        ArrayList<CartItem> cartList = main.getCartList();
         Dialog popupDialog = new Dialog(main);
 
         // args
@@ -92,7 +80,7 @@ public class RestaurantPageFragment extends Fragment {
         ;
 
         rv.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
-        FoodItemsAdapter foodItemsAdapter = new FoodItemsAdapter(foodItems,cartList,getContext(),main);
+        FoodItemsAdapter foodItemsAdapter = new FoodItemsAdapter(foodItems,main);
         rv.setAdapter(foodItemsAdapter);
 
         about_label.setOnClickListener(new View.OnClickListener() {

@@ -19,12 +19,10 @@ import java.util.ArrayList;
 public class FeaturedItemsAdapter extends RecyclerView.Adapter<FeaturedItemViewHolder> {
 
     private ArrayList<FoodItem> foodItems;
-    private MainActivity main;
     private FoodDBModel foodDBModel;
 
-    public FeaturedItemsAdapter(ArrayList<FoodItem> foodItems, Context context, MainActivity main, FoodDBModel foodDBModel) {
+    public FeaturedItemsAdapter(ArrayList<FoodItem> foodItems, Context context, FoodDBModel foodDBModel) {
         this.foodItems = foodItems;
-        this.main = main;
         this.foodDBModel = foodDBModel;
     }
 

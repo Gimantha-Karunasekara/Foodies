@@ -14,7 +14,6 @@ import java.util.ArrayList;
 public class HistoryAdapter extends RecyclerView.Adapter<CartViewHolder> {
 
     private ArrayList<CartItem> cartItems;
-    private Context context;
     private FoodDBModel dbModel;
 
     public HistoryAdapter(ArrayList<CartItem> cartItems)
