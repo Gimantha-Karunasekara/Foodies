@@ -54,7 +54,7 @@ public class SeedDatabse {
                         "Delivery within 15-20 min "
                         ,R.drawable.r4_flavour_spark),
 
-                new Restaurant(5,"Dokorean","Open 9AM - 8PM \n" +
+                new Restaurant(5,"Hang Gook Gwan","Open 9AM - 8PM \n" +
                         "Address: 347, De Mel Mawatha, Colombo 003 \n " +
                         "Contact : 01128291782 \n" +
                         "Delivery within 15-30 min "
