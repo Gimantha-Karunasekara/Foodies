@@ -8,7 +8,7 @@
         android:icon="@drawable/restaurants_icon" />
     <item android:id="@+id/cartFragment"
         android:title="Cart"
-        android:icon="@drawable/cart_icon"/>
+        android:icon="@drawable/cart_icon_white"/>
     <item android:id="@+id/accountFragment"
         android:title="Account"
         android:icon="@drawable/profile_pic"

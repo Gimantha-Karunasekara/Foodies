@@ -32,7 +32,8 @@
                     android:layout_margin="5dp"
                     android:src="@drawable/arrow_back_white"
                     app:rippleColor="@color/transparent"
-                    app:backgroundTint="@color/white"
+                    app:backgroundTint="@color/black"
+                    android:tintMode="screen"
                     android:outlineProvider="none"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -75,7 +76,7 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="20dp"
                     android:text="About"
-                    android:textColor="@color/teal_700"
+                    android:textColor="@color/yellow"
                     android:textSize="20sp"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -100,17 +101,5 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/cart_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
-        android:layout_margin="10dp"
-        android:src="@drawable/cart_icon"
-        app:backgroundTint="@color/white"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
-
-    </com.google.android.material.floatingactionbutton.FloatingActionButton>
 
 </FrameLayout>

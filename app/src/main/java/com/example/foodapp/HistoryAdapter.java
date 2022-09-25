@@ -1,5 +1,6 @@
 package com.example.foodapp;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -29,10 +30,10 @@ public class HistoryAdapter extends RecyclerView.Adapter<CartViewHolder> {
         Restaurant restaurant = dbModel.getRestaurantByID(foodItem.getRest_id());
         String title = restaurant.getName()+" - "+foodItem.getName();
         String count = "Count : "+cartItem.getCount();
-        String priceString = "Rs. "+String.valueOf(foodItem.getPrice() * cartItem.getCount());
+        @SuppressLint("DefaultLocale") String price = "Rs. "+String.format("%.2f", foodItem.getPrice() * cartItem.getCount());
         holder.cart_itemTitle.setText(title);
         holder.cart_itemCount.setText(count);
-        holder.cart_itemPrice.setText(priceString);
+        holder.cart_itemPrice.setText(price);
         holder.cart_itemDateTime.setText(cartItem.getDate_time());
         holder.cart_itemAdd.setVisibility(View.INVISIBLE);
         holder.cart_itemRemove.setVisibility(View.INVISIBLE);

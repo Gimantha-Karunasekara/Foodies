@@ -27,6 +27,10 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:menu="@menu/nav_items"
         app:labelVisibilityMode="selected"
+        android:backgroundTint="@color/yellow"
+        android:background="@color/shadeOfBlack"
+        app:itemIconTint="@drawable/bottom_nav_colors"
+        app:itemTextColor="@drawable/bottom_nav_colors"
         app:layout_constraintTop_toBottomOf="@id/nav_host_fragment">
 
 

@@ -1,6 +1,7 @@
 package com.example.foodapp;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.navigation.NavController;
@@ -44,6 +45,9 @@ public class MainActivity extends AppCompatActivity  {
         BottomNavigationView bottomNav = findViewById(R.id.bottom_nav);
         NavController navController = homeFragment.getNavController();
         NavigationUI.setupWithNavController(bottomNav, navController);
+        getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
+        getSupportActionBar().setCustomView(R.layout.custom_actionbar);
+        
 
 
 //        NavigationUI.setupActionBarWithNavController(this, navController);
@@ -93,7 +97,6 @@ public class MainActivity extends AppCompatActivity  {
                 .show();
 
     }
-
 
 
     public String getLogedIn(){return logedInUE;}

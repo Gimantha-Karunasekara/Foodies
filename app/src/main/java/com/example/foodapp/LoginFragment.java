@@ -62,6 +62,8 @@ public class LoginFragment extends Fragment {
         Button login_btn = view.findViewById(R.id.login_btn);
         Button signup_btn = view.findViewById(R.id.loginpg_signup_btn);
         FloatingActionButton back_btn = view.findViewById(R.id.login_back_btn);
+        MainActivity main = (MainActivity)getActivity();
+        main.getSupportActionBar().hide();
 
         FoodDBModel foodAppDBModel = new FoodDBModel();
         foodAppDBModel.load(view.getContext());
@@ -70,7 +72,6 @@ public class LoginFragment extends Fragment {
 //        b_nav.setSelectedItemId(R.id.accountFragment);
 
 
-        MainActivity main = (MainActivity)getActivity();
         String logedIn = main.getLogedIn();
 
         login_btn.setOnClickListener(new View.OnClickListener() {
