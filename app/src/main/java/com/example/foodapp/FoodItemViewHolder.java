@@ -42,17 +42,6 @@ public class FoodItemViewHolder extends RecyclerView.ViewHolder {
         item_Card = itemView.findViewById(R.id.foodItem_card);
 
 
-
-
-//        foodItemView_layout = itemView.findViewById(R.id.foodItem_ItemView_layout);
-//
-//        foodItemView_layout.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//
-//            }
-//        });
-
         item_Card.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

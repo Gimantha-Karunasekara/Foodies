@@ -47,10 +47,8 @@ public class MainActivity extends AppCompatActivity  {
         NavigationUI.setupWithNavController(bottomNav, navController);
         getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
         getSupportActionBar().setCustomView(R.layout.custom_actionbar);
-        
+        //Custom action bar - https://stackoverflow.com/questions/14483393/how-do-i-change-the-android-actionbar-title-and-icon
 
-
-//        NavigationUI.setupActionBarWithNavController(this, navController);
 
         bottomNav.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener(){
             @Override
@@ -85,7 +83,7 @@ public class MainActivity extends AppCompatActivity  {
     }
 
     @Override
-    //https://stackoverflow.com/questions/2257963/how-to-show-a-dialog-to-confirm-that-the-user-wishes-to-exit-an-android-activity
+    //Custom back action - https://stackoverflow.com/questions/2257963/how-to-show-a-dialog-to-confirm-that-the-user-wishes-to-exit-an-android-activity
     public void onBackPressed() {
         new AlertDialog.Builder(this).setMessage("Do you want to exit ?").setCancelable(true)
                 .setPositiveButton("Yes", new DialogInterface.OnClickListener() {

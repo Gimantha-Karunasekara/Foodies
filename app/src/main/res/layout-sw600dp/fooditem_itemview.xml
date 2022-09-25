@@ -4,7 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/foodItem_ItemView_layout">
+    android:id="@+id/foodItem_ItemView_layout"
+    android:layout_gravity="center">
 
     <androidx.cardview.widget.CardView
         android:id="@+id/foodItem_card"
@@ -59,10 +60,9 @@
             <ImageView
                 android:id="@+id/item_image"
                 android:layout_width="250dp"
-                android:layout_height="200dp"
+                android:layout_height="0dp"
                 android:layout_marginStart="5dp"
                 android:layout_marginHorizontal="24dp"
-                android:layout_marginEnd="16dp"
                 android:scaleType="centerCrop"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"

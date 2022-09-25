@@ -74,7 +74,6 @@ public class RestaurantPageFragment extends Fragment {
         main.getSupportActionBar().hide();
 
         navBar.setVisibility(View.VISIBLE);
-        main.getSupportActionBar().hide();
 
         ArrayList<CartItem> cartList = main.getCartList();
         Dialog popupDialog = new Dialog(main);

@@ -113,6 +113,7 @@ public class SeedDatabse {
     }
     public static void initFood(FoodDBModel foodAppDBModel)
     {
+        // food item id will not make any affect
         ArrayList<FoodItem> foodItems = new ArrayList<>(Arrays.asList(
                 new FoodItem(1,"Chicken Burger", "These flavorful ground chicken" +
                         " burgers are a delicious alternative to beef and will keep you grilling" +

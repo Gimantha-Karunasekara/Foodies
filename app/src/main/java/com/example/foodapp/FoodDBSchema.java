@@ -34,7 +34,7 @@ public class FoodDBSchema {
         }
     }
     public static class purchaseTable{
-        public static final String NAME = "purchse_history";
+        public static final String NAME = "purchase_history";
         public static class Cols{
             public static final String ITEM_ID = "id";
             public static final String COUNT = "count";

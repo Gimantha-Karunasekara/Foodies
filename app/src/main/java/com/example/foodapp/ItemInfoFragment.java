@@ -140,7 +140,10 @@ public class ItemInfoFragment extends Fragment {
                                 foodItem.getID(),
                                 Integer.parseInt(count.getText().toString()), logedIn,"time");
                         cartList.add(cartItem);
-                        Snackbar.make(view,"Items added to cart",Snackbar.LENGTH_SHORT).show();
+                        // show snack bar above bottom nav - https://stackoverflow.com/questions/36332487/move-snackbar-above-the-bottom-bar
+                        Snackbar snackbar = Snackbar.make(view,"Items added to cart",Snackbar.LENGTH_SHORT);
+                        snackbar.setAnchorView(navBar);
+                        snackbar.show();
                         navController.popBackStack();
                     }
 

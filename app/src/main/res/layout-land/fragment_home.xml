@@ -81,23 +81,13 @@
 
             </androidx.cardview.widget.CardView>
 
-            <androidx.cardview.widget.CardView
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_gravity="center"
-                app:layout_constraintTop_toTopOf="parent"
-                android:layout_marginHorizontal="5dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginBottom="5dp"
-                app:cardCornerRadius="15dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/profile_card"
-                >
-
                 <FrameLayout
                     android:id="@+id/featured_fl"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/profile_card">
                     <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/featured_rv"
                         android:layout_width="match_parent"
@@ -106,8 +96,6 @@
                     </androidx.recyclerview.widget.RecyclerView>
 
                 </FrameLayout>
-
-            </androidx.cardview.widget.CardView>
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
