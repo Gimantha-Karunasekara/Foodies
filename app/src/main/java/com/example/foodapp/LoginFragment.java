@@ -1,3 +1,12 @@
+/****************************************************************
+ * Authors:                                                     *
+ *      Gimantha Karunasekara - Gimantha-Karunasekara @ github  *
+ *      Pamodya Piyamini - pamo66 @ github                      *
+ * Descirption: Java - Android Food ordering application        *
+ * Date: 2022/09/22                                             *
+ * Version: 1.0                                                 *
+ ****************************************************************/
+
 package com.example.foodapp;
 
 import android.os.Bundle;
@@ -68,7 +77,6 @@ public class LoginFragment extends Fragment {
                 }
                 catch (Exception e)
                 {
-
                     Toast.makeText(view.getContext(),"Email or password is wrong, Try again",Toast.LENGTH_SHORT).show();
                 }
 

@@ -1,3 +1,12 @@
+/****************************************************************
+ * Authors:                                                     *
+ *      Gimantha Karunasekara - Gimantha-Karunasekara @ github  *
+ *      Pamodya Piyamini - pamo66 @ github                      *
+ * Descirption: Java - Android Food ordering application        *
+ * Date: 2022/09/22                                             *
+ * Version: 1.0                                                 *
+ ****************************************************************/
+
 package com.example.foodapp;
 
 import static com.example.foodapp.FoodDBSchema.*;
@@ -22,6 +31,7 @@ public class FoodDBHelper extends SQLiteOpenHelper {
                 + restaurantTable.Cols.NAME+ " Text, "
                 + restaurantTable.Cols.DESC+ " Text,"
                 +restaurantTable.Cols.IMG+" INT);");
+
         sqLiteDatabase.execSQL("create table "+userTable.NAME+"" +
                 "("+userTable.Cols.USERNAME+" Text, " +
                 ""+ userTable.Cols.EMAIL+ " Text PRIMARY KEY, " +
